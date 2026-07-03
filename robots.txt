@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/
+Sitemap: https://artel-sound.ru/sitemap.xml
+Host: artel-sound.ru
