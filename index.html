@@ -419,282 +419,85 @@
     <button class="arrow left" onclick="scrollSlider(this, -1)">❮</button>
     <div class="cards slider">
       <div class="card media-card">
-        <div class="media">
-          <video class="custom-video" preload="none" poster="assets/img/posters/tunepop.jpg">
-            <source src="assets/video/cards/beforeafter/tunepop.mp4" type="video/mp4">
-          </video>
-          <div class="video-player-overlay">
-            <button class="video-play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-          </div>
-          <div class="video-controls">
-            <div class="video-progress-container">
-              <div class="video-progress-bar"></div>
-            </div>
-            <div class="video-bottom-controls">
-              <button class="video-control-btn video-play-pause">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-              </button>
-              <span class="video-time">
-                <span class="video-current">0:00</span> / <span class="video-duration">0:00</span>
-              </span>
-              <div class="video-volume-container">
-                <button class="video-control-btn video-volume-btn">
-                  <svg class="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <svg class="mute-icon" style="display:none;" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                </button>
-                <div class="video-volume-slider">
-                  <div class="video-volume-bar"></div>
-                </div>
-              </div>
-              <button class="video-control-btn video-fullscreen">
-                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="media" style="aspect-ratio: 16/9; overflow: hidden; background: #000;">
+  <iframe 
+    src="https://vkvideo.ru/video_ext.php?oid=-229378378&id=456239018&hash=b56d140fa760bc56&hd=4"
+    style="width:100%; height:100%; border:0;"
+    allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+    frameborder="0"
+    allowfullscreen
+    loading="lazy"
+  ></iframe>
+</div>
         <h3>ПОП-ТРЕК</h3>
         <p>пример тюнинга вокала</p>
       </div>
       <div class="card media-card">
-        <div class="media">
-          <video class="custom-video" preload="none" poster="assets/img/posters/svabda.jpg">
-            <source src="assets/video/cards/beforeafter/svabda.mp4" type="video/mp4">
-          </video>
-          <div class="video-player-overlay">
-            <button class="video-play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-          </div>
-          <div class="video-controls">
-            <div class="video-progress-container">
-              <div class="video-progress-bar"></div>
-            </div>
-            <div class="video-bottom-controls">
-              <button class="video-control-btn video-play-pause">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-              </button>
-              <span class="video-time">
-                <span class="video-current">0:00</span> / <span class="video-duration">0:00</span>
-              </span>
-              <div class="video-volume-container">
-                <button class="video-control-btn video-volume-btn">
-                  <svg class="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <svg class="mute-icon" style="display:none;" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                </button>
-                <div class="video-volume-slider">
-                  <div class="video-volume-bar"></div>
-                </div>
-              </div>
-              <button class="video-control-btn video-fullscreen">
-                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="media" style="aspect-ratio: 16/9; overflow: hidden; background: #000;">
+  <iframe 
+    src="https://vkvideo.ru/video_ext.php?oid=-229378378&id=456239019&hash=003deaa9dd0492c7&hd=4"
+    style="width:100%; height:100%; border:0;"
+    allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+    frameborder="0"
+    allowfullscreen
+    loading="lazy"
+  ></iframe>
+</div>
         <h3>ПЕСНЯ НА СВАДЬБУ</h3>
         <p>пример сведения песни на свадьбу</p>
       </div>
       <div class="card media-card">
-        <div class="media">
-          <video class="custom-video" preload="none" poster="assets/img/posters/clean1.jpg">
-            <source src="assets/video/cards/beforeafter/clean1.mp4" type="video/mp4">
-          </video>
-          <div class="video-player-overlay">
-            <button class="video-play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-          </div>
-          <div class="video-controls">
-            <div class="video-progress-container">
-              <div class="video-progress-bar"></div>
-            </div>
-            <div class="video-bottom-controls">
-              <button class="video-control-btn video-play-pause">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-              </button>
-              <span class="video-time">
-                <span class="video-current">0:00</span> / <span class="video-duration">0:00</span>
-              </span>
-              <div class="video-volume-container">
-                <button class="video-control-btn video-volume-btn">
-                  <svg class="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <svg class="mute-icon" style="display:none;" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                </button>
-                <div class="video-volume-slider">
-                  <div class="video-volume-bar"></div>
-                </div>
-              </div>
-              <button class="video-control-btn video-fullscreen">
-                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="media" style="aspect-ratio: 16/9; overflow: hidden; background: #000;">
+  <iframe src="https://vkvideo.ru/video_ext.php?oid=-229378378&id=456239022&hash=52f53dc1f92c5fae&hd=4" 
+          style="width:100%; height:100%; border:0;" 
+          allowfullscreen 
+          loading="lazy">
+  </iframe>
+</div>
         <h3>ЧИСТКА ГОЛОСА ДЛЯ ВИДЕО</h3>
         <p>пример чистки голоса для видео от шумов и эхо</p>
       </div>
       <div class="card media-card">
-        <div class="media">
-          <video class="custom-video" preload="none" poster="assets/img/posters/rap2.jpg">
-            <source src="assets/video/cards/beforeafter/rap2.mp4" type="video/mp4">
-          </video>
-          <div class="video-player-overlay">
-            <button class="video-play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-          </div>
-          <div class="video-controls">
-            <div class="video-progress-container">
-              <div class="video-progress-bar"></div>
-            </div>
-            <div class="video-bottom-controls">
-              <button class="video-control-btn video-play-pause">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-              </button>
-              <span class="video-time">
-                <span class="video-current">0:00</span> / <span class="video-duration">0:00</span>
-              </span>
-              <div class="video-volume-container">
-                <button class="video-control-btn video-volume-btn">
-                  <svg class="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <svg class="mute-icon" style="display:none;" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                </button>
-                <div class="video-volume-slider">
-                  <div class="video-volume-bar"></div>
-                </div>
-              </div>
-              <button class="video-control-btn video-fullscreen">
-                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="media" style="aspect-ratio: 16/9; overflow: hidden; background: #000;">
+  <iframe src="https://vkvideo.ru/video_ext.php?oid=-229378378&id=456239021&hash=c5ee6abb9edb3f3f&hd=4" 
+          style="width:100%; height:100%; border:0;" 
+          allowfullscreen 
+          loading="lazy">
+  </iframe>
+</div>
         <h3>РЭП-ТРЕК</h3>
         <p>пример тюнинга вокала и сведения рэпа</p>
       </div>
       <div class="card media-card">
-        <div class="media">
-          <video class="custom-video" preload="none" poster="assets/img/posters/war.jpg">
-            <source src="assets/video/cards/beforeafter/war.mp4" type="video/mp4">
-          </video>
-          <div class="video-player-overlay">
-            <button class="video-play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-          </div>
-          <div class="video-controls">
-            <div class="video-progress-container">
-              <div class="video-progress-bar"></div>
-            </div>
-            <div class="video-bottom-controls">
-              <button class="video-control-btn video-play-pause">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-              </button>
-              <span class="video-time">
-                <span class="video-current">0:00</span> / <span class="video-duration">0:00</span>
-              </span>
-              <div class="video-volume-container">
-                <button class="video-control-btn video-volume-btn">
-                  <svg class="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <svg class="mute-icon" style="display:none;" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                </button>
-                <div class="video-volume-slider">
-                  <div class="video-volume-bar"></div>
-                </div>
-              </div>
-              <button class="video-control-btn video-fullscreen">
-                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="media" style="aspect-ratio: 16/9; overflow: hidden; background: #000;">
+  <iframe src="https://vkvideo.ru/video_ext.php?oid=-229378378&id=456239023&hash=10e33a56b7c02353&hd=4" 
+          style="width:100%; height:100%; border:0;" 
+          allowfullscreen 
+          loading="lazy">
+  </iframe>
+</div>
         <h3>ПЕСНЯ НА 9 МАЯ</h3>
         <p>пример сведения военной песни на корпоратив</p>
       </div>
       <div class="card media-card">
-        <div class="media">
-          <video class="custom-video" preload="none" poster="assets/img/posters/podcast1.jpg">
-            <source src="assets/video/cards/beforeafter/podcast1.mp4" type="video/mp4">
-          </video>
-          <div class="video-player-overlay">
-            <button class="video-play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-          </div>
-          <div class="video-controls">
-            <div class="video-progress-container">
-              <div class="video-progress-bar"></div>
-            </div>
-            <div class="video-bottom-controls">
-              <button class="video-control-btn video-play-pause">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-              </button>
-              <span class="video-time">
-                <span class="video-current">0:00</span> / <span class="video-duration">0:00</span>
-              </span>
-              <div class="video-volume-container">
-                <button class="video-control-btn video-volume-btn">
-                  <svg class="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <svg class="mute-icon" style="display:none;" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                </button>
-                <div class="video-volume-slider">
-                  <div class="video-volume-bar"></div>
-                </div>
-              </div>
-              <button class="video-control-btn video-fullscreen">
-                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="media" style="aspect-ratio: 16/9; overflow: hidden; background: #000;">
+  <iframe src="https://vkvideo.ru/video_ext.php?oid=-229378378&id=456239024&hash=1c1fe2389d95f839&hd=4" 
+          style="width:100%; height:100%; border:0;" 
+          allowfullscreen 
+          loading="lazy">
+  </iframe>
+</div>
         <h3>ЧИСТКА ГОЛОСА ДЛЯ ПОДКАСТА</h3>
         <p>пример чистки голоса от шумов и эхо</p>
       </div>
       <div class="card media-card">
-        <div class="media">
-          <video class="custom-video" preload="none" poster="assets/img/posters/deephouse.jpg">
-            <source src="assets/video/cards/beforeafter/deephouse.mp4" type="video/mp4">
-          </video>
-          <div class="video-player-overlay">
-            <button class="video-play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-          </div>
-          <div class="video-controls">
-            <div class="video-progress-container">
-              <div class="video-progress-bar"></div>
-            </div>
-            <div class="video-bottom-controls">
-              <button class="video-control-btn video-play-pause">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-              </button>
-              <span class="video-time">
-                <span class="video-current">0:00</span> / <span class="video-duration">0:00</span>
-              </span>
-              <div class="video-volume-container">
-                <button class="video-control-btn video-volume-btn">
-                  <svg class="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <svg class="mute-icon" style="display:none;" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                </button>
-                <div class="video-volume-slider">
-                  <div class="video-volume-bar"></div>
-                </div>
-              </div>
-              <button class="video-control-btn video-fullscreen">
-                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="media" style="aspect-ratio: 16/9; overflow: hidden; background: #000;">
+  <iframe src="https://vkvideo.ru/video_ext.php?oid=-229378378&id=456239027&hash=f6919f9e5010b61c&hd=4" 
+          style="width:100%; height:100%; border:0;" 
+          allowfullscreen 
+          loading="lazy">
+  </iframe>
+</div>
         <h3>DEEP HOUSE</h3>
         <p>пример аранжировки и сведения в стиле deep house</p>
       </div>
@@ -709,242 +512,68 @@
     <button class="arrow left" onclick="scrollSlider(this, -1)">❮</button>
     <div class="cards slider">
       <div class="card media-card">
-        <div class="media">
-          <video class="custom-video" preload="none" poster="assets/img/posters/andreytrabl_dnm.jpg">
-            <source src="assets/video/cards/videoclips/andreytrabl_dnm.mp4" type="video/mp4">
-          </video>
-          <div class="video-player-overlay">
-            <button class="video-play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-          </div>
-          <div class="video-controls">
-            <div class="video-progress-container">
-              <div class="video-progress-bar"></div>
-            </div>
-            <div class="video-bottom-controls">
-              <button class="video-control-btn video-play-pause">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-              </button>
-              <span class="video-time">
-                <span class="video-current">0:00</span> / <span class="video-duration">0:00</span>
-              </span>
-              <div class="video-volume-container">
-                <button class="video-control-btn video-volume-btn">
-                  <svg class="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <svg class="mute-icon" style="display:none;" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                </button>
-                <div class="video-volume-slider">
-                  <div class="video-volume-bar"></div>
-                </div>
-              </div>
-              <button class="video-control-btn video-fullscreen">
-                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="media" style="aspect-ratio: 16/9; overflow: hidden; background: #000;">
+  <iframe src="https://vkvideo.ru/video_ext.php?oid=-229378378&id=456239087&hash=dab638f5b9341c9d&hd=3" 
+          style="width:100%; height:100%; border:0;" 
+          allowfullscreen 
+          loading="lazy">
+  </iframe>
+</div>
         <h3>АНДРЕЙ ТРАБЛ — Дело нескольких минут</h3>
         <p>клип на трек 3 раунда 17 независимого баттла</p>
       </div>
       <div class="card media-card">
-        <div class="media">
-          <video class="custom-video" preload="none" poster="assets/img/posters/r1fmabes_kubokmc.jpg">
-            <source src="assets/video/cards/videoclips/r1fmabes_kubokmc.mp4" type="video/mp4">
-          </video>
-          <div class="video-player-overlay">
-            <button class="video-play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-          </div>
-          <div class="video-controls">
-            <div class="video-progress-container">
-              <div class="video-progress-bar"></div>
-            </div>
-            <div class="video-bottom-controls">
-              <button class="video-control-btn video-play-pause">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-              </button>
-              <span class="video-time">
-                <span class="video-current">0:00</span> / <span class="video-duration">0:00</span>
-              </span>
-              <div class="video-volume-container">
-                <button class="video-control-btn video-volume-btn">
-                  <svg class="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <svg class="mute-icon" style="display:none;" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                </button>
-                <div class="video-volume-slider">
-                  <div class="video-volume-bar"></div>
-                </div>
-              </div>
-              <button class="video-control-btn video-fullscreen">
-                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="media" style="aspect-ratio: 16/9; overflow: hidden; background: #000;">
+  <iframe src="https://vkvideo.ru/video_ext.php?oid=-229378378&id=456239088&hash=cc88788784f8f29c&hd=3" 
+          style="width:100%; height:100%; border:0;" 
+          allowfullscreen 
+          loading="lazy">
+  </iframe>
+</div>
         <h3>R1FMABES — КУБОК МЦ SURVIVAL (MAIN EVENT)</h3>
         <p>сводили Владу раунд против SECTOR</p>
       </div>
       <div class="card media-card">
-        <div class="media">
-          <video class="custom-video" preload="none" poster="assets/img/posters/tgpu_8_marta.jpg">
-            <source src="assets/video/cards/videoclips/tgpu_8_marta.mp4" type="video/mp4">
-          </video>
-          <div class="video-player-overlay">
-            <button class="video-play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-          </div>
-          <div class="video-controls">
-            <div class="video-progress-container">
-              <div class="video-progress-bar"></div>
-            </div>
-            <div class="video-bottom-controls">
-              <button class="video-control-btn video-play-pause">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-              </button>
-              <span class="video-time">
-                <span class="video-current">0:00</span> / <span class="video-duration">0:00</span>
-              </span>
-              <div class="video-volume-container">
-                <button class="video-control-btn video-volume-btn">
-                  <svg class="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <svg class="mute-icon" style="display:none;" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                </button>
-                <div class="video-volume-slider">
-                  <div class="video-volume-bar"></div>
-                </div>
-              </div>
-              <button class="video-control-btn video-fullscreen">
-                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="media" style="aspect-ratio: 16/9; overflow: hidden; background: #000;">
+  <iframe src="https://vkvideo.ru/video_ext.php?oid=-229378378&id=456239089&hash=ec18791168e3afab&hd=3" 
+          style="width:100%; height:100%; border:0;" 
+          allowfullscreen 
+          loading="lazy">
+  </iframe>
+</div>
         <h3>Университет Льва Толстого</h3>
         <p>делали поздравление с 8 марта ребятам из родного педа</p>
       </div>
       <div class="card media-card">
-        <div class="media">
-          <video class="custom-video" preload="none" poster="assets/img/posters/sashaspoke_codeend.jpg">
-            <source src="assets/video/cards/videoclips/sashaspoke_codeend.mp4" type="video/mp4">
-          </video>
-          <div class="video-player-overlay">
-            <button class="video-play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-          </div>
-          <div class="video-controls">
-            <div class="video-progress-container">
-              <div class="video-progress-bar"></div>
-            </div>
-            <div class="video-bottom-controls">
-              <button class="video-control-btn video-play-pause">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-              </button>
-              <span class="video-time">
-                <span class="video-current">0:00</span> / <span class="video-duration">0:00</span>
-              </span>
-              <div class="video-volume-container">
-                <button class="video-control-btn video-volume-btn">
-                  <svg class="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <svg class="mute-icon" style="display:none;" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                </button>
-                <div class="video-volume-slider">
-                  <div class="video-volume-bar"></div>
-                </div>
-              </div>
-              <button class="video-control-btn video-fullscreen">
-                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="media" style="aspect-ratio: 16/9; overflow: hidden; background: #000;">
+  <iframe src="https://vkvideo.ru/video_ext.php?oid=-229378378&id=456239090&hash=c040cf8e390e4d54&hd=3" 
+          style="width:100%; height:100%; border:0;" 
+          allowfullscreen 
+          loading="lazy">
+  </iframe>
+</div>
         <h3>sashaspoke — CODE: END</h3>
         <p>сведение для экранизации сингла Саши</p>
       </div>
       <div class="card media-card">
-        <div class="media">
-          <video class="custom-video" preload="none" poster="assets/img/posters/hehawatyca_shooter.jpg">
-            <source src="assets/video/cards/videoclips/hehawatyca_shooter.mp4" type="video/mp4">
-          </video>
-          <div class="video-player-overlay">
-            <button class="video-play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-          </div>
-          <div class="video-controls">
-            <div class="video-progress-container">
-              <div class="video-progress-bar"></div>
-            </div>
-            <div class="video-bottom-controls">
-              <button class="video-control-btn video-play-pause">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-              </button>
-              <span class="video-time">
-                <span class="video-current">0:00</span> / <span class="video-duration">0:00</span>
-              </span>
-              <div class="video-volume-container">
-                <button class="video-control-btn video-volume-btn">
-                  <svg class="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <svg class="mute-icon" style="display:none;" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                </button>
-                <div class="video-volume-slider">
-                  <div class="video-volume-bar"></div>
-                </div>
-              </div>
-              <button class="video-control-btn video-fullscreen">
-                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="media" style="aspect-ratio: 16/9; overflow: hidden; background: #000;">
+  <iframe src="https://vkvideo.ru/video_ext.php?oid=-229378378&id=456239091&hash=8602bdcc2186df25&hd=3" 
+          style="width:100%; height:100%; border:0;" 
+          allowfullscreen 
+          loading="lazy">
+  </iframe>
+</div>
         <h3>HEHAWATYCA — SHOOTER</h3>
         <p>cведение для экранизации сингла пацанов</p>
       </div>
       <div class="card media-card">
-        <div class="media">
-          <video class="custom-video" preload="none" poster="assets/img/posters/INSTAGIRLS.jpg">
-            <source src="assets/video/cards/videoclips/INSTAGIRLS.mp4" type="video/mp4">
-          </video>
-          <div class="video-player-overlay">
-            <button class="video-play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </button>
-          </div>
-          <div class="video-controls">
-            <div class="video-progress-container">
-              <div class="video-progress-bar"></div>
-            </div>
-            <div class="video-bottom-controls">
-              <button class="video-control-btn video-play-pause">
-                <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
-              </button>
-              <span class="video-time">
-                <span class="video-current">0:00</span> / <span class="video-duration">0:00</span>
-              </span>
-              <div class="video-volume-container">
-                <button class="video-control-btn video-volume-btn">
-                  <svg class="volume-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
-                  <svg class="mute-icon" style="display:none;" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
-                </button>
-                <div class="video-volume-slider">
-                  <div class="video-volume-bar"></div>
-                </div>
-              </div>
-              <button class="video-control-btn video-fullscreen">
-                <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="media" style="aspect-ratio: 16/9; overflow: hidden; background: #000;">
+  <iframe src="https://vkvideo.ru/video_ext.php?oid=-229378378&id=456239092&hash=40850d298d46e4c0&hd=3" 
+          style="width:100%; height:100%; border:0;" 
+          allowfullscreen 
+          loading="lazy">
+  </iframe>
+</div>
         <h3>INSTAGIRLS</h3>
         <p>запись и обработка дикторского голоса для онлайн-конкурса</p>
       </div>
