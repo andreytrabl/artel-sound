@@ -1316,11 +1316,11 @@ line-height:1.8;
 /* ===== КАРТА В КОНТАКТАХ ===== */
 .map-container {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 32 / 9;  /* изменено с 16/9 на 32/9 – в два раза ниже */
   overflow: hidden;
   border-radius: 16px;
   margin-top: 30px;
-  background: #ececec; /* фон на случай загрузки */
+  background: #ececec;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
@@ -1335,5 +1335,113 @@ line-height:1.8;
   .map-container {
     border-radius: 12px;
     margin-top: 20px;
+    aspect-ratio: 32 / 9; /* сохраняем пропорцию и на мобильных */
+  }
+}
+/* ===== ФОТОГАЛЕРЕЯ (сетка) ===== */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background: #ececec; /* фон для пустого места */
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1; /* квадратные превью (можно 4/3 или 3/2) */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  .gallery-item img {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 8px;
+  }
+}
+/* ===== НАВИГАЦИЯ В МОДАЛЬНОМ ОКНЕ ===== */
+.photo-modal-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10001;
+}
+
+.photo-modal-prev,
+.photo-modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: #fff;
+  font-size: 40px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background 0.3s ease, transform 0.2s ease;
+  backdrop-filter: blur(4px);
+  display: none; /* скрыты по умолчанию, показываются только для галереи */
+}
+
+.photo-modal-prev {
+  left: 20px;
+}
+.photo-modal-next {
+  right: 20px;
+}
+
+.photo-modal-prev:hover,
+.photo-modal-next:hover {
+  background: rgba(255, 138, 0, 0.8);
+  transform: translateY(-50%) scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .photo-modal-prev,
+  .photo-modal-next {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+  .photo-modal-prev {
+    left: 10px;
+  }
+  .photo-modal-next {
+    right: 10px;
   }
 }
