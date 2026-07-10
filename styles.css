@@ -530,7 +530,7 @@ line-height:1.8;
     font-size: 13px;
   }
   .hero-bg {
-    object-position: 45% 40%;
+    object-position: 45% 30%;
     object-fit: contain;
     transform: scale(1.9) translateX(-22%);
   }
