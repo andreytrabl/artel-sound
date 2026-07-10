@@ -67,6 +67,7 @@
     <nav>
         <a href="#aboutme">О НАС</a>
         <a href="#services">УСЛУГИ</a>
+        <a href="#photo">ФОТО</a>
         <a href="#portfolio">ПОРТФОЛИО</a>
         <a href="#video">ВИДЕО</a>
         <a href="#reviews">ОТЗЫВЫ</a>
@@ -81,7 +82,7 @@
 <div class="hero-content">
 <h1>СТУДИЯ<br>«АРТЕЛЬ»</h1>
 <p class="hero-sub">
-запись, сведение, цифровой мастеринг, аранжировки и песни под ключ
+Песни, музыка, звук без кредитов, SMS и регистрации
 </p>
 <div class="hero-buttons">
   <div class="socials">
@@ -93,8 +94,9 @@
     <a href="https://youtube.com/@andreytrabl?utm_source=site" target="_blank"><img src="assets/icons/youtube.png" alt="YouTube"></a>
   </div>
 </div>
-<div class="hero-description">
-  <p>с 2010 года мы создаём песни, свои и чужие, сопровождаем исполнителей от написания текста и работы на студии до выпуска релиза на стриминговых сервисах</p>
+<div class="hero-description" style="margin-top: 20px;">
+  <p>Запись вокала и инструментов, сведение и мастеринг треков любой сложности под современные стандарты как очно, так и дистанционно. Нам доверяют исполнители разных жанров и те, кому нужна песня на заказ для особого случая!</p>
+  <p>В студии мы сопровождаем проекты от черновика до релиза на стримингах. В портфолио — работы для участников баттлов, независимых артистов, коммерческих проектов и пр.</p>
 </div>
 </div>
 <div class="hero-bottom-gradient"></div>
@@ -150,6 +152,26 @@
 </div>
 <button class="arrow right" onclick="scrollSlider(this, 1)">❯</button>
 </div>
+</section>
+
+<!-- ФОТО -->
+<section id="photo" class="studio photo-section">
+  <h2>ФОТО</h2>
+  <p class="studio-sub">интерьер студии и рабочие моменты</p>
+  <div class="photo-grid">
+    <div class="gallery-item"><img src="assets/img/photo/photo1.jpg" alt="Фото студии 1"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo2.jpg" alt="Фото студии 2"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo3.jpg" alt="Фото студии 3"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo4.jpg" alt="Фото студии 4"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo5.jpg" alt="Фото студии 5"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo6.jpg" alt="Фото студии 6"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo7.jpg" alt="Фото студии 7"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo8.jpg" alt="Фото студии 8"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo9.jpg" alt="Фото студии 9"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo10.jpg" alt="Фото студии 10"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo11.jpg" alt="Фото студии 11"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo12.jpg" alt="Фото студии 12"></div>
+  </div>
 </section>
 
 <!-- ПОРТФОЛИО (аудио + обложки) -->
@@ -736,6 +758,10 @@
 <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ФОТО -->
 <div class="photo-modal" id="photoModal">
   <button class="photo-modal-close" id="closeModal">×</button>
+  <div class="photo-modal-nav">
+    <button class="photo-modal-prev" id="modalPrev">‹</button>
+    <button class="photo-modal-next" id="modalNext">›</button>
+  </div>
   <div class="photo-modal-content">
     <img id="modalImage" src="" alt="Полноразмерное фото">
   </div>
@@ -906,35 +932,105 @@ if (coversTrack && coversLeftBtn && coversRightBtn) {
   updateCoverSlider(true);
   coversLeftBtn.addEventListener('click', goToPrev);
   coversRightBtn.addEventListener('click', goToNext);
+}
 
-  // Модальное окно
+/* ===== МОДАЛЬНОЕ ОКНО С НАВИГАЦИЕЙ ===== */
+(function() {
   const modal = document.getElementById('photoModal');
   const modalImg = document.getElementById('modalImage');
-  const closeModal = document.getElementById('closeModal');
-  document.querySelectorAll('.cover-item img').forEach(img => {
-    img.addEventListener('click', () => {
-      modal.classList.add('active');
-      modalImg.src = img.src;
-      document.body.style.overflow = 'hidden';
+  const closeBtn = document.getElementById('closeModal');
+  const prevBtn = document.getElementById('modalPrev');
+  const nextBtn = document.getElementById('modalNext');
+
+  // Все изображения из галереи (раздел ФОТО) + скриншоты отзывов
+  const allImages = Array.from(document.querySelectorAll('.gallery-item img, .review-card img'));
+  let currentIndex = 0;
+  let isGalleryMode = false;
+
+  function showGalleryPhoto(index) {
+    if (!allImages.length) return;
+    if (index < 0) index = allImages.length - 1;
+    if (index >= allImages.length) index = 0;
+    currentIndex = index;
+    modalImg.src = allImages[currentIndex].src;
+    modalImg.alt = allImages[currentIndex].alt || 'Фото';
+  }
+
+  function openGallery(index) {
+    isGalleryMode = true;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    prevBtn.style.display = 'block';
+    nextBtn.style.display = 'block';
+    showGalleryPhoto(index);
+  }
+
+  // Открыть модалку для одиночного фото (обложки)
+  function openSingle(src) {
+    isGalleryMode = false;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
+    modalImg.src = src;
+    modalImg.alt = 'Фото';
+  }
+
+  // Клик по изображениям из галереи и отзывов
+  document.querySelectorAll('.gallery-item img, .review-card img').forEach((img) => {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const index = allImages.indexOf(this);
+      if (index !== -1) {
+        openGallery(index);
+      }
     });
   });
-  closeModal.addEventListener('click', () => {
+
+  // Клик по обложкам портфолио (без навигации)
+  document.querySelectorAll('.cover-item img').forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      openSingle(this.src);
+    });
+  });
+
+  // Кнопки "назад/вперёд"
+  prevBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (isGalleryMode) showGalleryPhoto(currentIndex - 1);
+  });
+  nextBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (isGalleryMode) showGalleryPhoto(currentIndex + 1);
+  });
+
+  function closeModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    isGalleryMode = false;
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
   });
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
+  document.addEventListener('keydown', function(e) {
+    if (modal.classList.contains('active')) {
+      if (e.key === 'Escape') {
+        closeModal();
+      } else if (e.key === 'ArrowLeft' && isGalleryMode) {
+        e.preventDefault();
+        showGalleryPhoto(currentIndex - 1);
+      } else if (e.key === 'ArrowRight' && isGalleryMode) {
+        e.preventDefault();
+        showGalleryPhoto(currentIndex + 1);
+      }
     }
   });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
-}
+})();
 
 /* ===== SMOOTH SCROLL NAV ===== */
 document.querySelectorAll('header nav a').forEach(link => {
@@ -976,7 +1072,6 @@ if (!localStorage.getItem('cookieConsent')) {
 document.getElementById('acceptCookie')?.addEventListener('click', () => {
   localStorage.setItem('cookieConsent', 'true');
   document.getElementById('cookieBanner').style.display = 'none';
-  // здесь позже можно инициализировать Яндекс.Метрику
 });
 </script>
 
