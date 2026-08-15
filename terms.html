@@ -43,6 +43,40 @@
         font-size: 36px;
       }
     }
+    .back-to-site {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      position: fixed;
+      top: 100px;
+      left: 40px;
+      padding: 12px 24px;
+      background: #1a1a1a;
+      color: #ff8a00;
+      font-family: "Bebas", sans-serif;
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      transition: 0.3s;
+      z-index: 100;
+    }
+    .back-to-site:hover {
+      background: #2a2a2a;
+      transform: translateX(-4px);
+    }
+    .back-to-site svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .back-to-site {
+        position: static;
+        margin: 90px 20px 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -53,6 +87,10 @@
     <!-- убираем ссылку "ГЛАВНАЯ" -->
   </nav>
 </header>
+<a href="index.html" class="back-to-site">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#ff8a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  На сайт
+</a>
 <div class="legal-content">
   <h1>Пользовательское соглашение</h1>
   <p>Настоящее Соглашение регулирует отношения между администрацией Сайта <strong>artel-sound.ru</strong> (далее — Администрация) и пользователем Сайта.</p>
