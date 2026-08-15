@@ -21,15 +21,21 @@
     <link rel="stylesheet" href="styles.css">
 
     <!-- Yandex.Metrika counter -->
+    <!-- Счётчик больше НЕ запускается сразу при загрузке страницы.
+         Функция loadYandexMetrika() вызывается только после того,
+         как пользователь нажал "OK" в баннере cookie (или уже нажимал раньше) —
+         см. скрипт внизу страницы рядом с cookie-banner -->
     <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109056207', 'ym');
+        function loadYandexMetrika() {
+            (function(m,e,t,r,i,k,a){
+                m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();
+                for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+            })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109056207', 'ym');
 
-        ym(109056207, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+            ym(109056207, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+        }
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/109056207" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
@@ -484,6 +490,9 @@
   </p>
   <p>Указанные на сайте цены не являются публичной офертой. Окончательная стоимость определяется после детального обсуждения.</p>
   <p>*Instagram и Facebook признаны экстремистскими организациями и запрещены на территории РФ.</p>
+  <!-- РЕКВИЗИТЫ: замени строку ниже на реальные данные (ИП/самозанятый/ООО, ИНН, при наличии ОГРН/ОГРНИП).
+       Пока эта строка со звёздочками — просто заглушка, чтобы было видно, куда вставить текст -->
+  <p>ИП/Самозанятый Иванов Иван Иванович, ИНН ХХХХХХХХХХХХ</p>
   <p>© Студия звукозаписи «Артель», 2026</p>
 </footer>
 
@@ -776,12 +785,16 @@ if (burger) {
 }
 
 // Cookie consent
-if (!localStorage.getItem('cookieConsent')) {
+if (localStorage.getItem('cookieConsent')) {
+  // согласие уже было дано раньше — можно запускать счётчик сразу
+  loadYandexMetrika();
+} else {
   document.getElementById('cookieBanner').style.display = 'flex';
 }
 document.getElementById('acceptCookie')?.addEventListener('click', () => {
   localStorage.setItem('cookieConsent', 'true');
   document.getElementById('cookieBanner').style.display = 'none';
+  loadYandexMetrika();
 });
 </script>
 
