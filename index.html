@@ -150,25 +150,19 @@
 <section id="photo" class="studio photo-section">
   <h2>ФОТО</h2>
   <p class="studio-sub">интерьер студии и рабочие моменты</p>
-  <div class="photo-grid">
-    <div class="photo-row">
-      <div class="gallery-item"><img src="assets/img/photo/photo1.jpg" alt="Фото студии 1"></div>
-      <div class="gallery-item"><img src="assets/img/photo/photo2.jpg" alt="Фото студии 2"></div>
-      <div class="gallery-item"><img src="assets/img/photo/photo3.jpg" alt="Фото студии 3"></div>
-      <div class="gallery-item"><img src="assets/img/photo/photo4.jpg" alt="Фото студии 4"></div>
-    </div>
-    <div class="photo-row">
-      <div class="gallery-item"><img src="assets/img/photo/photo5.jpg" alt="Фото студии 5"></div>
-      <div class="gallery-item"><img src="assets/img/photo/photo6.jpg" alt="Фото студии 6"></div>
-      <div class="gallery-item"><img src="assets/img/photo/photo7.jpg" alt="Фото студии 7"></div>
-      <div class="gallery-item"><img src="assets/img/photo/photo8.jpg" alt="Фото студии 8"></div>
-    </div>
-    <div class="photo-row">
-      <div class="gallery-item"><img src="assets/img/photo/photo9.jpg" alt="Фото студии 9"></div>
-      <div class="gallery-item"><img src="assets/img/photo/photo10.jpg" alt="Фото студии 10"></div>
-      <div class="gallery-item"><img src="assets/img/photo/photo11.jpg" alt="Фото студии 11"></div>
-      <div class="gallery-item"><img src="assets/img/photo/photo12.jpg" alt="Фото студии 12"></div>
-    </div>
+  <div class="photo-grid" id="photoGrid">
+    <div class="gallery-item"><img src="assets/img/photo/photo1.jpg" alt="Фото студии 1"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo2.jpg" alt="Фото студии 2"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo3.jpg" alt="Фото студии 3"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo4.jpg" alt="Фото студии 4"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo5.jpg" alt="Фото студии 5"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo6.jpg" alt="Фото студии 6"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo7.jpg" alt="Фото студии 7"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo8.jpg" alt="Фото студии 8"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo9.jpg" alt="Фото студии 9"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo10.jpg" alt="Фото студии 10"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo11.jpg" alt="Фото студии 11"></div>
+    <div class="gallery-item"><img src="assets/img/photo/photo12.jpg" alt="Фото студии 12"></div>
   </div>
 </section>
 
@@ -366,6 +360,10 @@
   <a href="https://vk.ru/reviews-229378378" target="_blank" class="review-btn review-btn-vk">
     <img src="assets/icons/vk.png" alt="ВКонтакте">
     <span>Отзывы ВКонтакте</span>
+  </a>
+  <a href="https://yandex.ru/maps/org/38650113761/reviews/" target="_blank" class="review-btn review-btn-ya">
+    <span class="review-btn-ya-icon">Я</span>
+    <span>Отзывы на Яндекс Картах</span>
   </a>
   <iframe src="https://yandex.ru/sprav/widget/rating-badge/38650113761?type=rating" width="150" height="50" frameborder="0"></iframe>
 </div>
@@ -571,6 +569,33 @@ document.querySelectorAll('.slider').forEach(slider => {
   });
   slider.style.cursor = 'grab';
 });
+
+const photoGrid = document.getElementById('photoGrid');
+if (photoGrid) {
+  let isDown = false, startX, scrollLeft, moved = false;
+  photoGrid.addEventListener('mousedown', (e) => {
+    isDown = true;
+    moved = false;
+    photoGrid.classList.add('dragging');
+    startX = e.pageX - photoGrid.offsetLeft;
+    scrollLeft = photoGrid.scrollLeft;
+  });
+  photoGrid.addEventListener('mouseleave', () => { isDown = false; photoGrid.classList.remove('dragging'); });
+  photoGrid.addEventListener('mouseup', () => { isDown = false; photoGrid.classList.remove('dragging'); });
+  photoGrid.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - photoGrid.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    if (Math.abs(walk) > 5) moved = true;
+    photoGrid.scrollLeft = scrollLeft - walk;
+  });
+  photoGrid.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('click', (e) => {
+      if (moved) { e.stopPropagation(); e.preventDefault(); }
+    }, true);
+  });
+}
 
 const coversTrack = document.querySelector('.covers-track');
 const coversLeftBtn = document.querySelector('.covers-left');
