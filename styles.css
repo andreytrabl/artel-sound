@@ -3601,139 +3601,226 @@ body > footer {
   }
 }
 
-.legal-page {
+/* Legal pages */
+body.legal-page {
   min-height: 100vh;
-  color: #fafafc;
   overflow-x: hidden;
+  background: #1b1b1b;
 }
 
-.legal-page .legal-header {
+body.legal-page > .header,
+body.legal-page > .legal-main,
+body.legal-page > .legal-footer {
   position: relative;
-  z-index: 10;
+  z-index: 2;
 }
 
-.legal-page .legal-header .header {
-  position: fixed !important;
+body.legal-page > .header {
+  z-index: 1000;
 }
 
 .legal-main {
-  position: relative;
-  z-index: 2;
-  width: min(1100px, 90%);
+  width: min(1080px, calc(100% - 10vw));
   margin: 0 auto;
-  padding: 150px 0 80px;
+  padding: 130px 0 70px;
+}
+
+.back-to-site {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 9px 16px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  color: #fafafc;
+  background: rgba(20,20,20,.82);
+  border: 1px solid rgba(250,250,252,.28);
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: "Benzin", sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+  transition: .25s ease;
+}
+
+.back-to-site:hover {
+  color: #1b1b1b;
+  background: #ff8a00;
+  border-color: #ff8a00;
+  transform: translateY(-2px);
+}
+
+.back-to-site svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  display: block;
 }
 
 .legal-content {
   width: 100%;
-  padding: 48px 52px;
-  background: rgba(37,37,37,.94);
-  border: 1px solid rgba(250,250,252,.2);
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.28);
-  backdrop-filter: blur(12px);
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 48px 44px 54px;
+  background: rgba(36,36,36,.94);
+  border: 1px solid rgba(250,250,252,.24);
+  border-radius: 20px;
+  overflow: hidden;
+  color: #fafafc;
+}
+
+.legal-content h1,
+.legal-content h2,
+.legal-content p {
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .legal-content h1 {
-  margin: 0 0 34px;
-  color: #fafafc;
+  margin: 0 0 42px;
   font-family: "Benzin", sans-serif;
-  font-size: clamp(34px, 5vw, 72px);
-  line-height: .98;
+  font-size: clamp(32px, 3.5vw, 50px);
+  line-height: .96;
+  letter-spacing: -.025em;
+  color: #fafafc;
+  text-transform: uppercase;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .legal-content h2 {
-  margin: 34px 0 14px;
-  color: #ff8a00;
+  margin: 42px 0 12px;
   font-family: "Benzin", sans-serif;
-  font-size: clamp(20px, 2.2vw, 30px);
-  line-height: 1.1;
+  font-size: clamp(24px, 2.5vw, 36px);
+  line-height: .98;
+  letter-spacing: -.02em;
+  color: #ff8a00;
+  text-transform: uppercase;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .legal-content p {
-  margin: 0 0 16px;
-  color: rgba(250,250,252,.82);
+  margin: 0 0 18px;
   font-family: "TikTok", sans-serif;
   font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.55;
+  color: rgba(250,250,252,.82);
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
 }
 
-.legal-content strong { color: #fafafc; }
-.legal-content a { color: #ff8a00; }
-
-.legal-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 0 24px;
-  padding: 11px 18px;
-  background: #1b1b1b;
-  border: 1px solid rgba(250,250,252,.2);
-  border-radius: 10px;
+.legal-content strong {
   color: #fafafc;
-  font-family: "Benzin", sans-serif;
-  font-size: 13px;
-  line-height: 1;
-  text-decoration: none;
-  transition: .25s ease;
 }
 
-.legal-back:hover {
-  background: #ff8a00;
-  border-color: #ff8a00;
-  color: #1b1b1b;
-  transform: translateY(-2px);
+.legal-content a {
+  color: #ff8a00;
+  overflow-wrap: anywhere;
 }
 
-.legal-back svg {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
+.legal-content h2 + p {
+  margin-bottom: 20px;
 }
 
 .legal-footer {
-  position: relative;
-  z-index: 2;
+  width: min(1080px, calc(100% - 10vw));
+  margin: 0 auto;
+  padding: 0 0 50px;
+  color: rgba(250,250,252,.55);
+  font-family: "TikTok", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 @media (max-width: 900px) {
   .legal-main {
-    width: 90%;
-    padding: 120px 0 50px;
+    width: calc(100% - 10vw);
+    padding: 105px 0 45px;
   }
 
   .legal-content {
-    padding: 32px 26px;
-    border-radius: 18px;
-  }
-
-  .legal-content h1 { margin-bottom: 28px; }
-  .legal-content p { font-size: 15px; line-height: 1.6; }
-  .legal-content h2 { margin-top: 28px; }
-}
-
-@media (max-width: 600px) {
-  .legal-main {
-    width: 92%;
-    padding-top: 100px;
-  }
-
-  .legal-content {
-    padding: 24px 18px;
+    padding: 34px 28px 40px;
     border-radius: 16px;
   }
 
   .legal-content h1 {
-    font-size: 30px;
-    line-height: 1.05;
+    margin-bottom: 30px;
+    font-size: clamp(24px, 6vw, 36px);
+    line-height: .98;
   }
 
-  .legal-content h2 { font-size: 19px; }
-  .legal-content p { font-size: 14px; }
+  .legal-content h2 {
+    margin-top: 32px;
+    font-size: clamp(20px, 4.5vw, 28px);
+    line-height: 1;
+  }
 
-  .legal-back {
+  .legal-content p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .legal-footer {
+    width: calc(100% - 10vw);
+    padding-bottom: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .legal-main {
+    width: calc(100% - 28px);
+    padding: 102px 0 30px;
+  }
+
+  .back-to-site {
     width: 100%;
-    justify-content: center;
-    min-height: 44px;
+    margin-bottom: 18px;
+    min-height: 40px;
+    font-size: 12px;
+  }
+
+  .legal-content {
+    width: 100%;
+    padding: 25px 18px 32px;
+    border-radius: 14px;
+  }
+
+  .legal-content h1 {
+    margin-bottom: 24px;
+    font-size: clamp(20px, 5.5vw, 28px);
+    line-height: .98;
+    letter-spacing: -.02em;
+  }
+
+  .legal-content h2 {
+    margin-top: 27px;
+    margin-bottom: 9px;
+    font-size: clamp(17px, 4.8vw, 24px);
+    line-height: 1;
+    letter-spacing: -.015em;
+  }
+
+  .legal-content p {
+    margin-bottom: 15px;
+    font-size: 13px;
+    line-height: 1.48;
+  }
+
+  .legal-footer {
+    width: calc(100% - 28px);
+    font-size: 11px;
+    padding-bottom: 24px;
   }
 }
