@@ -1161,7 +1161,32 @@
   }
 
   .music-page .artel-case-controls {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "progress"
+      "buttons"
+      "order";
+    align-items: center;
+    gap: 14px;
     margin-top: 20px;
+  }
+
+  .music-page .artel-case-progress-wrap {
+    grid-area: progress;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .music-page .artel-case-buttons {
+    grid-area: buttons;
+    justify-content: center;
+  }
+
+  .music-page .artel-case-order {
+    grid-area: order;
+    justify-self: center;
   }
 
   .music-page .artel-case-btn {
