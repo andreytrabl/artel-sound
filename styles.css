@@ -5598,3 +5598,14 @@ a.music-card-more::after{content:" →"}
   .cf-reviews .rc-card{height:600px}
   .cf-video{--cf-h:430px}
 }
+
+/* ===== Широкие карусели + видео без рамок ===== */
+.cf{width:89vw;margin-left:calc(50% - 44.5vw)}
+.cf-video{--cf-h:400px;--cf-w:min(620px,78vw)}
+.cf-video .media-card{background:transparent !important;border:0 !important;box-shadow:none !important;padding:0 !important;animation:none !important;border-radius:22px;overflow:hidden}
+.cf-video .media-card h3,.cf-video .media-card p{display:none !important}
+.cf-video .media-card .media{border-radius:22px !important;overflow:hidden;margin:0 !important}
+.cf-reviews{--cf-h:610px}
+@media (max-width:900px){.cf{width:100vw;margin-left:calc(50% - 50vw)}.cf-video{--cf-h:260px;--cf-w:78vw}}
+@media (max-width:600px){.cf-reviews{--cf-h:640px}}
+.studio > .cf{max-width:none;min-width:0}
