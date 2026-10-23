@@ -128,11 +128,17 @@
 очная запись в г. Тула или удалённые услуги из любой точки мира
 </p>
 
-<div class="socials section-socials">
-<a href="https://vk.ru/studio_artel_tula?utm_source=site" target="_blank" rel="noopener" aria-label="ВКонтакте"><img src="assets/icons/vk.png" alt="ВКонтакте"></a>
-<a href="https://rutube.ru/channel/81429966/?utm_source=site" target="_blank" rel="noopener" aria-label="RUTUBE"><img src="assets/icons/rutube.png" alt="RUTUBE"></a>
-<a href="https://www.youtube.com/@studio_artel_tula?utm_source=site" target="_blank" rel="noopener" aria-label="YouTube"><img src="assets/icons/youtube.png" alt="YouTube"></a>
-<a href="mailto:studio-artel-tula@yandex.ru" aria-label="Почта"><img src="assets/icons/mail.png" alt="Почта"></a>
+<div class="contact-order">
+  <button class="contact-order-button" type="button" aria-expanded="false" aria-controls="contactOrderSocials1">СВЯЗАТЬСЯ</button>
+  <div class="contact-order-socials" id="contactOrderSocials1" aria-hidden="true">
+    <a class="contact-order-social" href="https://vk.ru/studio_artel_tula?utm_source=site" target="_blank" rel="noopener" aria-label="ВКонтакте"><img src="assets/icons/vk.png" alt="ВКонтакте"></a>
+    <a class="contact-order-social" href="https://rutube.ru/channel/81429966/?utm_source=site" target="_blank" rel="noopener" aria-label="RUTUBE"><img src="assets/icons/rutube.png" alt="RUTUBE"></a>
+    <a class="contact-order-social" href="https://t.me/studio_artel_tula?utm_source=site" target="_blank" rel="noopener" aria-label="Telegram"><img src="assets/icons/telegram.png" alt="Telegram"></a>
+    <a class="contact-order-social" href="https://www.youtube.com/@studio_artel_tula?utm_source=site" target="_blank" rel="noopener" aria-label="YouTube"><img src="assets/icons/youtube.png" alt="YouTube"></a>
+    <a class="contact-order-social" href="https://www.instagram.com/studio_artel_tula/?utm_source=site" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/icons/instagram.png" alt="Instagram"></a>
+    <a class="contact-order-social" href="tel:+79807232388" aria-label="Позвонить"><img src="assets/icons/phone.png" alt="Позвонить"></a>
+    <a class="contact-order-social" href="mailto:studio-artel-tula@yandex.ru" aria-label="Почта"><img src="assets/icons/mail.png" alt="Почта"></a>
+  </div>
 </div>
 
 <div class="services-marquee" aria-label="Услуги">
@@ -479,12 +485,18 @@
   <h2>КОНТАКТЫ</h2>
 
   <div class="hero-buttons">
-    <div class="socials">
-    <a href="https://vk.ru/studio_artel_tula?utm_source=site" target="_blank"><img src="assets/icons/vk.png" alt="ВКонтакте"></a>
-    <a href="https://rutube.ru/channel/81429966/?utm_source=site" target="_blank"><img src="assets/icons/rutube.png" alt="RUTUBE"></a>
-    <a href="https://www.youtube.com/@studio_artel_tula?utm_source=site" target="_blank"><img src="assets/icons/youtube.png" alt="YouTube"></a><a href="mailto:studio-artel-tula@yandex.ru" aria-label="Почта"><img src="assets/icons/mail.png" alt="Почта"></a>
-    <a href="mailto:studio-artel-tula@yandex.ru" aria-label="Почта"><img src="assets/icons/mail.png" alt="Почта"></a>
-    </div>
+    <div class="contact-order">
+  <button class="contact-order-button" type="button" aria-expanded="false" aria-controls="contactOrderSocials2">СВЯЗАТЬСЯ</button>
+  <div class="contact-order-socials" id="contactOrderSocials2" aria-hidden="true">
+    <a class="contact-order-social" href="https://vk.ru/studio_artel_tula?utm_source=site" target="_blank" rel="noopener" aria-label="ВКонтакте"><img src="assets/icons/vk.png" alt="ВКонтакте"></a>
+    <a class="contact-order-social" href="https://rutube.ru/channel/81429966/?utm_source=site" target="_blank" rel="noopener" aria-label="RUTUBE"><img src="assets/icons/rutube.png" alt="RUTUBE"></a>
+    <a class="contact-order-social" href="https://t.me/studio_artel_tula?utm_source=site" target="_blank" rel="noopener" aria-label="Telegram"><img src="assets/icons/telegram.png" alt="Telegram"></a>
+    <a class="contact-order-social" href="https://www.youtube.com/@studio_artel_tula?utm_source=site" target="_blank" rel="noopener" aria-label="YouTube"><img src="assets/icons/youtube.png" alt="YouTube"></a>
+    <a class="contact-order-social" href="https://www.instagram.com/studio_artel_tula/?utm_source=site" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/icons/instagram.png" alt="Instagram"></a>
+    <a class="contact-order-social" href="tel:+79807232388" aria-label="Позвонить"><img src="assets/icons/phone.png" alt="Позвонить"></a>
+    <a class="contact-order-social" href="mailto:studio-artel-tula@yandex.ru" aria-label="Почта"><img src="assets/icons/mail.png" alt="Почта"></a>
+  </div>
+</div>
   </div>
 
   <div class="map-container">
@@ -1191,5 +1203,23 @@ document.querySelectorAll('.faq-question').forEach(question => {
 });
 </script>
 
+
+<script>
+(function(){
+  const orders=document.querySelectorAll('.contact-order');
+  function close(o){o.querySelector('.contact-order-button').classList.remove('active');o.querySelector('.contact-order-socials').classList.remove('active');o.querySelector('.contact-order-button').setAttribute('aria-expanded','false');o.querySelector('.contact-order-socials').setAttribute('aria-hidden','true');}
+  orders.forEach(o=>{
+    const b=o.querySelector('.contact-order-button'),r=o.querySelector('.contact-order-socials');
+    b.addEventListener('click',e=>{
+      e.stopPropagation();
+      const open=!r.classList.contains('active');
+      orders.forEach(close);
+      if(open){b.classList.add('active');r.classList.add('active');b.setAttribute('aria-expanded','true');r.setAttribute('aria-hidden','false');}
+    });
+    o.addEventListener('click',e=>e.stopPropagation());
+  });
+  document.addEventListener('click',()=>orders.forEach(close));
+})();
+</script>
 </body>
 </html>
