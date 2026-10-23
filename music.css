@@ -2031,3 +2031,12 @@
     overflow: hidden;
   }
 }
+
+/* Тёмный фон под всей страницей (иначе внизу проступает белый) */
+html, body.music-page { background: #1b1b1b !important; }
+@media (max-width: 600px) {
+  .music-section-heading h2 {
+    font-size: clamp(26px, 8.6vw, 40px) !important;
+    overflow-wrap: anywhere;
+  }
+}
