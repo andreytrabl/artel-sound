@@ -4325,3 +4325,20 @@ body.legal-page > .header {
 #services .music-card{padding-bottom:150px;min-height:300px}
 #services .music-music-bed{height:120px}
 @media (max-width:900px){#services .music-card{padding-bottom:135px;min-height:0}#services .music-music-bed{height:105px}}
+
+/* ===== Защита от выезда вправо на мобильных ===== */
+html{overflow-x:hidden;max-width:100%}
+body{overflow-x:hidden;max-width:100%;position:relative}
+.hero,.studio,.footer{max-width:100%;overflow-x:clip}
+.studio > *{min-width:0;max-width:100%}
+.music-cards{min-width:0}
+.music-card{min-width:0;max-width:100%}
+.video-slider{min-width:0;max-width:100%}
+.photo-grid{max-width:100%}
+@media (max-width:900px){
+  .music-cards{grid-template-columns:minmax(0,1fr) !important}
+  .music-card-price{max-width:calc(100% - 44px);white-space:normal}
+}
+@media (max-width:600px){
+  .music-card-price,.music-card-price-text{font-size:clamp(24px,7.4vw,34px)}
+}
