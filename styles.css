@@ -5609,3 +5609,9 @@ a.music-card-more::after{content:" →"}
 @media (max-width:900px){.cf{width:100vw;margin-left:calc(50% - 50vw)}.cf-video{--cf-h:260px;--cf-w:78vw}}
 @media (max-width:600px){.cf-reviews{--cf-h:640px}}
 .studio > .cf{max-width:none;min-width:0}
+
+/* Карточки отзывов по высоте содержимого, без пустоты */
+.cf-reviews .rc-card{height:auto !important}
+.rc-stars{margin-top:16px !important;padding-top:0 !important}
+.cf-reviews{--cf-h:500px}
+@media (max-width:600px){.cf-reviews{--cf-h:520px}}
