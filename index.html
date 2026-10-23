@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="«Артель» | Студия звукозаписи" />
     
-    <link rel="stylesheet" href="styles.css?v=20261024b">
+    <link rel="stylesheet" href="styles.css?v=20261024c">
 
     <script type="text/javascript">
         function loadYandexMetrika() {
@@ -147,7 +147,7 @@
 <h3>ЗАПИСЬ НА СТУДИИ</h3>
 <p>Записываем любой вокал и музыкальные инструменты: духовые, медные, акустические гитары, электрогитары и пр.</p>
 </div>
-<div class="music-card-price music-card-price-text">ОТ 1000 РУБ.</div>
+<a class="music-card-price music-card-price-text music-card-more" href="record.html" target="_blank" rel="noopener">ПОДРОБНЕЕ</a>
 <div class="music-music-bed music-music-bed-one" aria-hidden="true">
   <svg class="music-sine-wave" viewBox="0 0 1200 260" preserveAspectRatio="none">
     <path d="M0,145 C90,70 180,70 270,145 S450,220 540,145 S720,70 810,145 S990,220 1080,145 S1170,90 1200,135"></path>
@@ -161,7 +161,7 @@
 <h3>СВЕДЕНИЕ И МАСТЕРИНГ</h3>
 <p>Сведение и цифровой мастеринг под референсы с ручной редакцией, по дорожкам или с готовым минусом, с вокалом или без.</p>
 </div>
-<div class="music-card-price music-card-price-text">ОТ 3000 РУБ.</div>
+<a class="music-card-price music-card-price-text music-card-more" href="mixing.html" target="_blank" rel="noopener">ПОДРОБНЕЕ</a>
 <div class="music-music-bed music-music-bed-two" aria-hidden="true">
   <svg class="music-sine-wave" viewBox="0 0 1200 260" preserveAspectRatio="none">
     <path d="M0,145 C90,70 180,70 270,145 S450,220 540,145 S720,70 810,145 S990,220 1080,145 S1170,90 1200,135"></path>
@@ -175,7 +175,7 @@
 <h3>АРАНЖИРОВКА</h3>
 <p>В любом жанре с живыми и/или электронными инструментами под ваши референсы и хотелки.</p>
 </div>
-<div class="music-card-price music-card-price-text">ОТ 3000 РУБ.</div>
+<a class="music-card-price music-card-price-text music-card-more" href="music.html" target="_blank" rel="noopener">ПОДРОБНЕЕ</a>
 <div class="music-music-bed music-music-bed-three" aria-hidden="true">
   <svg class="music-sine-wave" viewBox="0 0 1200 260" preserveAspectRatio="none">
     <path d="M0,145 C90,70 180,70 270,145 S450,220 540,145 S720,70 810,145 S990,220 1080,145 S1170,90 1200,135"></path>
@@ -189,7 +189,7 @@
 <h3>ПЕСНЯ НА ЗАКАЗ</h3>
 <p>Пишем текст и музыку с нуля под ваши хотелки: для себя и для площадок, на баттлы и конкурсы, на праздники и корпоративы.</p>
 </div>
-<div class="music-card-price music-card-price-text">ОТ 5000 РУБ.</div>
+<a class="music-card-price music-card-price-text music-card-more" href="song.html" target="_blank" rel="noopener">ПОДРОБНЕЕ</a>
 <div class="music-music-bed music-music-bed-four" aria-hidden="true">
   <svg class="music-sine-wave" viewBox="0 0 1200 260" preserveAspectRatio="none">
     <path d="M0,145 C90,70 180,70 270,145 S450,220 540,145 S720,70 810,145 S990,220 1080,145 S1170,90 1200,135"></path>
@@ -222,30 +222,40 @@
 <section id="portfolio" class="studio portfolio-section">
   <h2>ПОРТФОЛИО</h2>
 
-  <div class="portfolio-grid">
-    <div class="audio-col">
-      
-      <div class="yandex-player-wrapper">
-        <iframe
-          frameborder="0"
-          scrolling="yes"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen"
-          allowfullscreen
-          referrerpolicy="strict-origin-when-cross-origin"
-          src="https://music.yandex.ru/iframe/playlist/andreytrabl/1007"
-          loading="eager"
-        ></iframe>
-      </div>
-    </div>
+<div class="artel-case-player" data-audio-player>
+      <div class="artel-case-player-bg" aria-hidden="true"></div>
+      <canvas class="artel-case-visualizer" data-visualizer aria-hidden="true"></canvas>
+      <div class="artel-case-player-main">
+        <div class="artel-case-cover-wrap">
+          <img class="artel-case-cover" data-track-cover alt="Обложка трека" hidden>
+        </div>
 
-    <div class="covers-col">
-      <div class="portfolio-photo-carousel photo-grid" id="portfolioPhotoGrid" aria-label="Фото в портфолио">
-        <div class="gallery-item"><img src="assets/img/edu/thumbs/musicheads.jpg" data-full="assets/img/edu/musicheads.png" alt="Музыкальный проект — обложка" loading="lazy" decoding="async"></div>
-        <div class="gallery-item"><img src="assets/img/edu/thumbs/profile.jpg" data-full="assets/img/edu/profile.png" alt="Музыкальный проект — профиль" loading="lazy" decoding="async"></div>
-        <div class="gallery-item"><img src="assets/img/edu/thumbs/acoustic_build.jpg" data-full="assets/img/edu/acoustic_build.png" alt="Музыкальный проект — акустическая сборка" loading="lazy" decoding="async"></div>
+        <div class="artel-case-copy">
+          <strong class="artel-case-title" data-track-title>Добавьте первый трек</strong>
+          <p class="artel-case-description" data-track-description>Укажите MP3, название, описание кейса и квадратную обложку.</p>
+        </div>
       </div>
+
+      <div class="artel-case-controls">
+        <div class="artel-case-buttons">
+          <button class="artel-case-btn" type="button" data-action="prev" aria-label="Предыдущий трек">◀</button>
+          <button class="artel-case-btn artel-case-play" type="button" data-action="play" aria-label="Воспроизвести">▶</button>
+          <button class="artel-case-btn" type="button" data-action="next" aria-label="Следующий трек">▶</button>
+        </div>
+
+        <div class="artel-case-progress-wrap">
+          <div class="artel-case-progress-top">
+            <span data-current-time>0:00</span>
+            <span data-duration>0:00</span>
+          </div>
+          <input class="artel-case-progress" data-progress type="range" min="0" max="100" value="0" step="0.1" aria-label="Позиция воспроизведения">
+        </div>
+
+        <a class="artel-case-order" href="#contacts">ЗАКАЗАТЬ</a>
+      </div>
+
+      <audio data-audio preload="metadata"></audio>
     </div>
-  </div>
 </section>
 
 <section id="video" class="studio video-examples-section">
@@ -432,6 +442,44 @@
         <a class="music-review-open" href="https://yandex.ru/maps/org/artel/38650113761/reviews/?ll=37.654876%2C54.206385&amp;mode=search&amp;tab=reviews&amp;z=17.65" target="_blank" rel="noopener noreferrer" aria-label="В Яндекс Картах"><svg class="music-review-open-icon music-review-open-icon-yandex" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.7a7.2 7.2 0 0 0-7.2 7.2c0 5.08 5.87 10.43 6.55 11.03a.98.98 0 0 0 1.3 0c.68-.6 6.55-5.95 6.55-11.03A7.2 7.2 0 0 0 12 2.7Zm0 10.1a2.9 2.9 0 1 1 0-5.8 2.9 2.9 0 0 1 0 5.8Z"/></svg><span>В ЯНДЕКС КАРТАХ ↗</span></a>
       </article>
     </div>
+
+<h3 class="video-subheading rc-heading">КЛИЕНТЫ О НАС</h3>
+<div class="rc-wrap">
+  <div class="rc-track" id="rcTrack">
+    <article class="rc-card">
+      <img class="rc-photo" src="assets/img/reviews/review1.jpg" alt="Фото клиента 1" loading="lazy" decoding="async">
+      <h3 class="rc-name">Имя Фамилия <svg class="rc-note" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#ffc21a"/><path d="M15.8 5.5v8.6a2.7 2.7 0 1 1-1.5-2.4V8.3l-4.1 1v6.2a2.7 2.7 0 1 1-1.5-2.4V7.3Z" fill="#1b1b1b"/></svg></h3>
+      <p class="rc-text">Профессионалы своего дела, <b>быстро и качественно оформили песню под мои запросы.</b> Спасибо!</p>
+      <div class="rc-stars" aria-label="Оценка 5 из 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg></div>
+    </article>
+    <article class="rc-card">
+      <img class="rc-photo" src="assets/img/reviews/review2.jpg" alt="Фото клиента 2" loading="lazy" decoding="async">
+      <h3 class="rc-name">Имя Фамилия <svg class="rc-note" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#ffc21a"/><path d="M15.8 5.5v8.6a2.7 2.7 0 1 1-1.5-2.4V8.3l-4.1 1v6.2a2.7 2.7 0 1 1-1.5-2.4V7.3Z" fill="#1b1b1b"/></svg></h3>
+      <p class="rc-text">Очень комфортная атмосфера, <b>профессиональный подход и внимательное отношение к деталям</b></p>
+      <div class="rc-stars" aria-label="Оценка 5 из 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg></div>
+    </article>
+    <article class="rc-card">
+      <img class="rc-photo" src="assets/img/reviews/review3.jpg" alt="Фото клиента 3" loading="lazy" decoding="async">
+      <h3 class="rc-name">Имя Фамилия <svg class="rc-note" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#ffc21a"/><path d="M15.8 5.5v8.6a2.7 2.7 0 1 1-1.5-2.4V8.3l-4.1 1v6.2a2.7 2.7 0 1 1-1.5-2.4V7.3Z" fill="#1b1b1b"/></svg></h3>
+      <p class="rc-text">Не первый раз работаю с ребятами из студии. <b>Очень довольна их работой, профессионализмом.</b> Все делают качественно и с душой</p>
+      <div class="rc-stars" aria-label="Оценка 5 из 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg></div>
+    </article>
+    <article class="rc-card">
+      <img class="rc-photo" src="assets/img/reviews/review4.jpg" alt="Фото клиента 4" loading="lazy" decoding="async">
+      <h3 class="rc-name">Имя Фамилия <svg class="rc-note" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#ffc21a"/><path d="M15.8 5.5v8.6a2.7 2.7 0 1 1-1.5-2.4V8.3l-4.1 1v6.2a2.7 2.7 0 1 1-1.5-2.4V7.3Z" fill="#1b1b1b"/></svg></h3>
+      <p class="rc-text">Бесконечно благодарна за работу, <b>для нас это память на всю жизнь, спасибо!</b></p>
+      <div class="rc-stars" aria-label="Оценка 5 из 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg></div>
+    </article>
+    <article class="rc-card">
+      <img class="rc-photo" src="assets/img/reviews/review5.jpg" alt="Фото клиента 5" loading="lazy" decoding="async">
+      <h3 class="rc-name">Имя Фамилия <svg class="rc-note" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#ffc21a"/><path d="M15.8 5.5v8.6a2.7 2.7 0 1 1-1.5-2.4V8.3l-4.1 1v6.2a2.7 2.7 0 1 1-1.5-2.4V7.3Z" fill="#1b1b1b"/></svg></h3>
+      <p class="rc-text"><b>Спасибо вам ребята большое за ваш труд.</b> Ещё не раз вернусь к вам</p>
+      <div class="rc-stars" aria-label="Оценка 5 из 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg></div>
+    </article>
+  </div>
+  <button type="button" class="rc-arrow rc-prev" aria-label="Назад">‹</button>
+  <button type="button" class="rc-arrow rc-next" aria-label="Вперёд">›</button>
+</div>
 </section>
 
 <section id="faq" class="studio">
@@ -519,13 +567,13 @@
   </div>
 </div>
 
-<footer class="footer">
-  <p>
-  <a href="privacy.html" target="_blank" rel="noopener noreferrer" style="color: #ff8a00;">Политика конфиденциальности</a> | 
-  <a href="terms.html" target="_blank" rel="noopener noreferrer" style="color: #ff8a00;">Пользовательское соглашение</a>
-  </p>
-  <p>Самозанятый Николаев Андрей Андриянович, ИНН 710711027358</p>
-  <p>© Студия звукозаписи «Артель», 2026</p>
+<footer class="music-footer">
+  <div class="music-footer-links">
+    <a href="privacy.html" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+    <span aria-hidden="true">|</span>
+    <a href="terms.html" target="_blank" rel="noopener noreferrer">Пользовательское соглашение</a>
+  </div>
+  <div class="music-footer-copy">© Студия звукозаписи «Артель», 2026</div>
 </footer>
 
 <div class="cookie-banner" id="cookieBanner" style="display: none;">
@@ -1212,6 +1260,358 @@ document.querySelectorAll('.faq-question').forEach(question => {
       b.addEventListener('click',function(){var c0=g.querySelector('.media-card');g.scrollBy({left:d*(c0?c0.offsetWidth+20:300),behavior:'smooth'});});w.appendChild(b);}
     mk('video-prev','‹',-1);mk('video-next','›',1);
   });
+})();
+</script>
+<script>
+(function(){
+const musicTracks = [
+
+  {
+    src: 'assets/audio/bezzvuchnyrezhim.mp3',
+    title: 'БЕЗЗВУЧНЫЙ РЕЖИМ',
+    description: 'бит для одного из треков альбома "Последний" Саши Ресторатора',
+    cover: 'assets/img/covers/bezzvuchnyrezhim.png'
+  },
+  
+  {
+    src: 'assets/audio/kabardinka.mp3',
+    title: 'КАБАРДИНКА',
+    description: 'аранжировка в стиле современного поп-шансона с живыми и синтезированными инструментами под демку из SUNO под текст и жанр дуэта KABAR & DINA',
+    cover: 'assets/img/covers/kabardinka.png'
+  },
+
+  {
+    src: 'assets/audio/ktotebyaobidel.mp3',
+    title: 'КТО ТЕБЯ ОБИДЕЛ',
+    description: 'аранжировка для Ксюши Рокс по демке из SUNO в стиле поп-рок с живыми и виртуальными инструментами',
+    cover: 'assets/img/covers/ktotebyaobidel.png'
+  },
+
+  {
+    src: 'assets/audio/yapomny.mp3',
+    title: 'Я ПОМНЮ',
+    description: 'аранжировка для Ксюши Рокс по демке из SUNO в стиле поп-рок с живыми и виртуальными инструментами',
+    cover: 'assets/img/covers/yapomny.png'
+  },
+
+  {
+    src: 'assets/audio/grustnyepesni.mp3',
+    title: 'ГРУСТНЫЕ ПЕСНИ',
+    description: 'аранжирова под текст и гармонию Ульяны rebelle в стиле песен Mary Gu',
+    cover: 'assets/img/covers/grustnyepesni.png'
+  },
+
+  {
+    src: 'assets/audio/nomera.mp3',
+    title: 'НОМЕРА',
+    description: 'аранжирова под текст и гармонию sorry, we are closed в стиле поп-панк',
+    cover: 'assets/img/covers/nomera.png'
+  },
+
+  {
+    src: 'assets/audio/slovnomenyatutnet.mp3',
+    title: 'СЛОВНО МЕНЯ ТУТ НЕТ',
+    description: 'дебютный релиз The You-Jin Experience, полностью подготовленный в нашей студии',
+    cover: 'assets/img/covers/slovnomenyatutnet.png'
+  },
+
+  {
+    src: 'assets/audio/kadry.mp3',
+    title: 'КАДРЫ',
+    description: 'сделали лёгкую гитарную аранжировку для нового совместного синглаа Саши Носика и WillyWonkka',
+    cover: 'assets/img/covers/kadry.png'
+  }
+
+];
+
+const audioPlayer = document.querySelector('[data-audio-player]');
+if (audioPlayer) {
+  const audio = audioPlayer.querySelector('[data-audio]');
+  const playButton = audioPlayer.querySelector('[data-action="play"]');
+  const prevButton = audioPlayer.querySelector('[data-action="prev"]');
+  const nextButton = audioPlayer.querySelector('[data-action="next"]');
+  const copy = audioPlayer.querySelector('.artel-case-copy');
+  const title = audioPlayer.querySelector('[data-track-title]');
+  const description = audioPlayer.querySelector('[data-track-description]');
+  const cover = audioPlayer.querySelector('[data-track-cover]');
+  const background = audioPlayer.querySelector('.artel-case-player-bg');
+  const progress = audioPlayer.querySelector('[data-progress]');
+  const currentTimeLabel = audioPlayer.querySelector('[data-current-time]');
+  const durationLabel = audioPlayer.querySelector('[data-duration]');
+  const coverWrap = audioPlayer.querySelector('.artel-case-cover-wrap');
+  const visualizer = audioPlayer.querySelector('[data-visualizer]');
+
+  let currentIndex = 0;
+  let audioContext = null;
+  let analyser = null;
+  let sourceNode = null;
+  let visualizerFrame = null;
+  let visualizerReady = false;
+  let changeTimer = null;
+
+  const formatTime = (seconds) => {
+    if (!Number.isFinite(seconds) || seconds < 0) return '0:00';
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+    return `${minutes}:${secs}`;
+  };
+
+  const resetProgress = () => {
+    progress.value = 0;
+    progress.style.setProperty('--progress', '0%');
+    currentTimeLabel.textContent = '0:00';
+    durationLabel.textContent = '0:00';
+  };
+
+  const renderEmpty = () => {
+    title.textContent = 'Добавьте первый трек';
+    description.textContent = 'Укажите MP3, название, описание кейса и квадратную обложку в массиве musicTracks.';
+    cover.hidden = true;
+    cover.removeAttribute('src');
+    background.style.removeProperty('--player-cover');
+    playButton.disabled = true;
+    prevButton.disabled = true;
+    nextButton.disabled = true;
+  };
+
+  const applyTrack = (index, autoplay = false) => {
+    if (!musicTracks.length) {
+      renderEmpty();
+      return;
+    }
+
+    currentIndex = (index + musicTracks.length) % musicTracks.length;
+    const track = musicTracks[currentIndex];
+
+    audio.src = track.src;
+    title.textContent = track.title || 'Без названия';
+    description.textContent = track.description || '';
+    resetProgress();
+
+    if (track.cover) {
+      cover.src = track.cover;
+      cover.alt = track.title ? `Обложка: ${track.title}` : 'Обложка трека';
+      cover.hidden = false;
+      background.style.setProperty('--player-cover', `url("${track.cover}")`);
+    } else {
+      cover.hidden = true;
+      cover.removeAttribute('src');
+      background.style.removeProperty('--player-cover');
+    }
+
+    audio.load();
+    if (autoplay) audio.play().catch(() => {});
+  };
+
+  const loadTrack = (index, autoplay = false, direction = 'next') => {
+    if (!musicTracks.length) {
+      renderEmpty();
+      return;
+    }
+
+    const normalizedIndex = (index + musicTracks.length) % musicTracks.length;
+    if (normalizedIndex === currentIndex && cover.src) {
+      if (autoplay && audio.paused) audio.play().catch(() => {});
+      return;
+    }
+
+    if (changeTimer) clearTimeout(changeTimer);
+
+    copy?.classList.remove('is-text-changing', 'is-text-entering');
+    void copy?.offsetWidth;
+    copy?.classList.add('is-text-changing');
+
+    coverWrap.classList.remove('is-changing-next', 'is-changing-prev', 'is-entering-next', 'is-entering-prev');
+    void coverWrap.offsetWidth;
+    coverWrap.classList.add(direction === 'prev' ? 'is-changing-prev' : 'is-changing-next');
+
+    changeTimer = setTimeout(() => {
+      applyTrack(normalizedIndex, autoplay);
+
+      copy?.classList.remove('is-text-changing');
+      void copy?.offsetWidth;
+      copy?.classList.add('is-text-entering');
+
+      coverWrap.classList.remove('is-changing-next', 'is-changing-prev');
+      void coverWrap.offsetWidth;
+      const enterClass = direction === 'prev' ? 'is-entering-prev' : 'is-entering-next';
+      coverWrap.classList.add(enterClass);
+
+      setTimeout(() => {
+        copy?.classList.remove('is-text-entering');
+        coverWrap.classList.remove(enterClass);
+      }, 620);
+    }, 300);
+  };
+
+  const resizeVisualizer = () => {
+    if (!visualizer) return;
+    const rect = visualizer.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const width = Math.max(1, Math.round(rect.width * dpr));
+    const height = Math.max(1, Math.round(rect.height * dpr));
+    if (visualizer.width !== width || visualizer.height !== height) {
+      visualizer.width = width;
+      visualizer.height = height;
+    }
+  };
+
+  const setupVisualizer = () => {
+    if (!visualizer || visualizerReady) return true;
+    try {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return false;
+
+      audioContext = new AudioContextClass();
+      sourceNode = audioContext.createMediaElementSource(audio);
+      analyser = audioContext.createAnalyser();
+      analyser.fftSize = 2048;
+      analyser.smoothingTimeConstant = 0.82;
+      analyser.minDecibels = -90;
+      analyser.maxDecibels = -12;
+      sourceNode.connect(analyser);
+      analyser.connect(audioContext.destination);
+
+      visualizerReady = true;
+      resizeVisualizer();
+      return true;
+    } catch (error) {
+      audioContext?.close?.().catch?.(() => {});
+      audioContext = null;
+      analyser = null;
+      sourceNode = null;
+      return false;
+    }
+  };
+
+  const stopVisualizer = () => {
+    if (visualizerFrame) {
+      cancelAnimationFrame(visualizerFrame);
+      visualizerFrame = null;
+    }
+  };
+
+  const drawVisualizer = () => {
+    if (!visualizer || !analyser) return;
+
+    resizeVisualizer();
+
+    const ctx = visualizer.getContext('2d');
+    const width = visualizer.width;
+    const height = visualizer.height;
+    const data = new Uint8Array(analyser.frequencyBinCount);
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    const render = () => {
+      visualizerFrame = requestAnimationFrame(render);
+      analyser.getByteFrequencyData(data);
+
+      ctx.clearRect(0, 0, width, height);
+
+      const bars = Math.min(128, Math.floor(width / (dpr * 7)));
+      const gap = Math.max(2 * dpr, width / (bars * 8));
+      const barWidth = Math.max(1, (width - gap * (bars - 1)) / bars);
+      const baseY = height - 8 * dpr;
+
+      for (let i = 0; i < bars; i++) {
+        // Logarithmic-ish frequency mapping: more useful musical frequencies, less empty treble.
+        const start = Math.floor(Math.pow(i / bars, 1.75) * (data.length - 1));
+        const end = Math.max(start + 1, Math.floor(Math.pow((i + 1) / bars, 1.75) * (data.length - 1)));
+        let peak = 0;
+        for (let j = start; j < end; j++) peak = Math.max(peak, data[j]);
+
+        const normalized = Math.pow(peak / 255, 1.35);
+        const barHeight = normalized * height * 0.82;
+        if (barHeight < 1.5 * dpr) continue;
+
+        const x = i * (barWidth + gap);
+        const gradient = ctx.createLinearGradient(0, baseY - barHeight, 0, baseY);
+        gradient.addColorStop(0, 'rgba(250,250,252,.58)');
+        gradient.addColorStop(.55, 'rgba(255,138,0,.48)');
+        gradient.addColorStop(1, 'rgba(255,138,0,.08)');
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(x, baseY - barHeight, barWidth, barHeight);
+      }
+    };
+
+    render();
+  };
+
+  const startVisualizer = async () => {
+    if (!setupVisualizer()) return;
+    try {
+      if (audioContext?.state === 'suspended') await audioContext.resume();
+    } catch (_) {}
+    audioPlayer.classList.add('is-visualizing');
+    stopVisualizer();
+    drawVisualizer();
+  };
+
+  const clearVisualizer = () => {
+    stopVisualizer();
+    if (!visualizer) return;
+    const ctx = visualizer.getContext('2d');
+    ctx.clearRect(0, 0, visualizer.width, visualizer.height);
+    audioPlayer.classList.remove('is-visualizing');
+  };
+
+  window.addEventListener('resize', resizeVisualizer, {passive:true});
+
+  playButton.addEventListener('click', () => {
+    if (!audio.src) return;
+    if (audio.paused) audio.play().catch(() => {});
+    else audio.pause();
+  });
+
+  progress.addEventListener('input', () => {
+    if (!Number.isFinite(audio.duration) || audio.duration <= 0) return;
+    audio.currentTime = (Number(progress.value) / 100) * audio.duration;
+  });
+
+  audio.addEventListener('loadedmetadata', () => {
+    durationLabel.textContent = formatTime(audio.duration);
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    if (!Number.isFinite(audio.duration) || audio.duration <= 0) return;
+    const percent = (audio.currentTime / audio.duration) * 100;
+    progress.value = percent;
+    progress.style.setProperty('--progress', `${percent}%`);
+    currentTimeLabel.textContent = formatTime(audio.currentTime);
+  });
+
+  prevButton.addEventListener('click', () => loadTrack(currentIndex - 1, true, 'prev'));
+  nextButton.addEventListener('click', () => loadTrack(currentIndex + 1, true, 'next'));
+
+  audio.addEventListener('play', () => {
+    playButton.textContent = '❚❚';
+    playButton.setAttribute('aria-label', 'Пауза');
+    audioPlayer.classList.add('is-playing');
+    startVisualizer();
+  });
+
+  audio.addEventListener('pause', () => {
+    playButton.textContent = '▶';
+    playButton.setAttribute('aria-label', 'Воспроизвести');
+    audioPlayer.classList.remove('is-playing');
+    clearVisualizer();
+  });
+
+  audio.addEventListener('ended', () => loadTrack(currentIndex + 1, true, 'next'));
+
+  const randomInitialIndex = Math.floor(Math.random() * musicTracks.length);
+  loadTrack(randomInitialIndex, false);
+}
+
+})();
+</script>
+<script>
+(function(){
+  var t=document.getElementById('rcTrack');if(!t)return;
+  function step(d){var c=t.querySelector('.rc-card');t.scrollBy({left:d*(c?c.offsetWidth+18:300),behavior:'smooth'});}
+  document.querySelector('.rc-prev').addEventListener('click',function(){step(-1)});
+  document.querySelector('.rc-next').addEventListener('click',function(){step(1)});
 })();
 </script>
 </body>
