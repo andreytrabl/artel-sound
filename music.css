@@ -185,6 +185,8 @@
 .music-order-social:nth-child(3){transition-delay:.12s}
 .music-order-social:nth-child(4){transition-delay:.17s}
 .music-order-social:nth-child(5){transition-delay:.22s}
+.music-order-social:nth-child(6){transition-delay:.27s}
+.music-order-social:nth-child(7){transition-delay:.32s}
 
 .music-order-socials.active {
   width: 338px;
@@ -2013,4 +2015,19 @@
 
 .music-page .music-review-source::before {
   display: none !important;
+}
+
+@media (max-width: 700px) {
+  .music-order {
+    flex-wrap: wrap;
+    gap: 12px 10px;
+  }
+
+  .music-page .music-order .music-order-socials.active {
+    margin-left: 0 !important;
+  }
+
+  .music-order-socials:not(.active) {
+    overflow: hidden;
+  }
 }
