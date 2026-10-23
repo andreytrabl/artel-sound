@@ -4313,15 +4313,7 @@ body.legal-page > .header {
 }
 @media (max-width:600px){.photo-grid{height:16rem}}
 
-/* ===== Видео-слайдер ===== */
-.video-slider{position:relative}
-.video-slider .video-grid{display:flex !important;grid-template-columns:none !important;flex-wrap:nowrap;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
-.video-slider .video-grid::-webkit-scrollbar{display:none}
-.video-slider .video-grid .media-card{flex:0 0 min(440px,82%);width:auto;min-width:0;scroll-snap-align:start}
-.video-arrow{position:absolute;top:38%;z-index:5;width:46px;height:46px;border-radius:50%;border:1px solid rgba(250,250,252,.34);background:#ff8a00;color:#1b1b1b;font:800 26px/1 "Benzin",sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 4px;box-shadow:0 8px 20px rgba(0,0,0,.35)}
-.video-arrow:hover{background:#fafafc}
-.video-prev{left:-14px}.video-next{right:-14px}
-@media (max-width:600px){.video-arrow{display:none}}
+
 #services .music-card{padding-bottom:150px;min-height:300px}
 #services .music-music-bed{height:120px}
 @media (max-width:900px){#services .music-card{padding-bottom:135px;min-height:0}#services .music-music-bed{height:105px}}
@@ -5574,20 +5566,35 @@ a.music-card-more::after{content:" →"}
 
 /* ===== Карусель отзывов ===== */
 .rc-heading{margin-top:70px}
-.rc-wrap{position:relative;margin-top:24px}
-.rc-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 2px 8px}
-.rc-track::-webkit-scrollbar{display:none}
-.rc-card{flex:0 0 min(320px,82%);scroll-snap-align:start;padding:14px 14px 22px;border-radius:30px;background:linear-gradient(145deg,#2a2a2a,#202020);border:1px solid rgba(250,250,252,.18);box-shadow:0 18px 40px rgba(0,0,0,.3)}
+.rc-card{display:flex;flex-direction:column;padding:14px 14px 22px;border-radius:30px;background:linear-gradient(145deg,#2a2a2a,#202020);border:1px solid rgba(250,250,252,.18);box-shadow:0 18px 40px rgba(0,0,0,.3)}
 .rc-photo{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:22px;background:#333}
 .rc-name{display:flex;align-items:center;gap:10px;margin:18px 8px 0;font-family:"TikTok",sans-serif;font-weight:700;font-size:22px;color:#fafafc;letter-spacing:0;text-transform:none}
 .rc-note{flex:0 0 26px;width:26px;height:26px;transform-origin:50% 60%;animation:rcNote 2.4s ease-in-out infinite}
 @keyframes rcNote{0%,100%{transform:rotate(-10deg) scale(1)}30%{transform:rotate(10deg) scale(1.18)}60%{transform:rotate(-6deg) scale(1.05)}}
 .rc-text{margin:10px 8px 0;font-size:16px;line-height:1.45;color:rgba(250,250,252,.62)}
 .rc-text b{color:rgba(250,250,252,.92);font-weight:600}
-.rc-stars{display:flex;gap:4px;margin:16px 8px 0}
+.rc-stars{display:flex;gap:4px;margin:auto 8px 0;padding-top:16px}
 .rc-stars svg{width:22px;height:22px;fill:#ffc21a}
-.rc-arrow{position:absolute;top:34%;z-index:5;width:46px;height:46px;border-radius:50%;border:1px solid rgba(250,250,252,.34);background:#ff8a00;color:#1b1b1b;font:800 26px/1 "Benzin",sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 4px;box-shadow:0 8px 20px rgba(0,0,0,.35)}
-.rc-arrow:hover{background:#fafafc}
-.rc-prev{left:-14px}.rc-next{right:-14px}
-@media (max-width:600px){.rc-arrow{display:none}}
 @media (prefers-reduced-motion:reduce){.rc-note{animation:none}}
+
+/* ===== Карусель «как рилсы» (coverflow) ===== */
+.cf{position:relative;perspective:1400px;perspective-origin:50% 50%;margin-top:30px;height:var(--cf-h,520px);overflow:hidden;isolation:isolate}
+.cf-track{position:relative;width:100%;height:100%;transform-style:preserve-3d;touch-action:pan-y;cursor:grab;display:block !important}
+.cf-track:active{cursor:grabbing}
+.cf .cf-item{position:absolute !important;left:50% !important;top:50% !important;margin:0 !important;width:var(--cf-w,320px) !important;max-width:none !important;flex:none !important;
+  transform:translate3d(calc(-50% + var(--cf-x,0%)),-50%,var(--cf-z,0px)) rotateY(var(--cf-r,0deg)) scale(var(--cf-s,1)) !important;
+  opacity:var(--cf-o,1) !important;z-index:var(--cf-zi,1) !important;transform-style:preserve-3d;backface-visibility:hidden;
+  transition:transform .55s cubic-bezier(.22,.75,.2,1),opacity .4s ease,filter .4s ease !important;filter:brightness(.72);cursor:pointer;will-change:transform,opacity}
+.cf-item[data-position="0"]{filter:brightness(1)}
+.cf-item[data-position="1"],.cf-item[data-position="-1"]{filter:brightness(.82)}
+.cf-item:not(.is-active) iframe{pointer-events:none}
+.cf-item:hover{animation:none}
+.cf-reviews{--cf-h:610px;--cf-w:min(320px,76vw)}
+.cf-reviews .rc-card{height:570px}
+.cf-video{--cf-h:470px;--cf-w:min(440px,80vw)}
+.cf-video .media-card{height:auto}
+@media (max-width:600px){
+  .cf-reviews{--cf-h:640px}
+  .cf-reviews .rc-card{height:600px}
+  .cf-video{--cf-h:430px}
+}
