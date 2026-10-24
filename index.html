@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="«Артель» | Студия звукозаписи" />
     
-    <link rel="stylesheet" href="styles.css?v=20261024f">
+    <link rel="stylesheet" href="styles.css?v=20261024g">
 
     <script type="text/javascript">
         function loadYandexMetrika() {
@@ -57,7 +57,7 @@
     </script>
 </head>
 <body>
-<video class="site-background-video" autoplay muted loop playsinline preload="auto" poster="hero.png" aria-hidden="true">
+<video class="site-background-video" autoplay muted loop playsinline preload="metadata" poster="hero-poster.jpg" aria-hidden="true">
   <source src="hero.mp4" type="video/mp4">
 </video>
 <div class="site-background-overlay" aria-hidden="true"></div>
@@ -86,34 +86,34 @@
     <div class="hero-video-gallery" aria-label="Вертикальные видео">
       <div class="hero-video-track" id="heroVideoTrack">
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-01.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
+          <video class="hero-video" src="assets/video/hero-01.mp4" loop muted playsinline preload="none" aria-label="Видео студии 1"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-02.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
+          <video class="hero-video" src="assets/video/hero-02.mp4" loop muted playsinline preload="none" aria-label="Видео студии 2"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-03.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
+          <video class="hero-video" src="assets/video/hero-03.mp4" loop muted playsinline preload="none" aria-label="Видео студии 3"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-04.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
+          <video class="hero-video" src="assets/video/hero-04.mp4" loop muted playsinline preload="none" aria-label="Видео студии 4"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-05.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
+          <video class="hero-video" src="assets/video/hero-05.mp4" loop muted playsinline preload="none" aria-label="Видео студии 1"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-06.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
+          <video class="hero-video" src="assets/video/hero-06.mp4" loop muted playsinline preload="none" aria-label="Видео студии 2"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-07.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
+          <video class="hero-video" src="assets/video/hero-07.mp4" loop muted playsinline preload="none" aria-label="Видео студии 3"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-08.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
+          <video class="hero-video" src="assets/video/hero-08.mp4" loop muted playsinline preload="none" aria-label="Видео студии 4"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-09.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
+          <video class="hero-video" src="assets/video/hero-09.mp4" loop muted playsinline preload="none" aria-label="Видео студии 3"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-10.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
+          <video class="hero-video" src="assets/video/hero-10.mp4" loop muted playsinline preload="none" aria-label="Видео студии 4"></video>
         </article>
       </div>
     </div>
@@ -561,7 +561,7 @@
     <iframe 
       src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=38650113761"
       allowfullscreen
-      loading="eager"
+      loading="lazy"
     ></iframe>
   </div>
 </section>
@@ -899,6 +899,16 @@ document.getElementById('acceptCookie')?.addEventListener('click', () => {
       item.style.setProperty('--cover-opacity',Math.abs(delta)>3?'0':'1');
       item.style.setProperty('--cover-zindex',String(100-Math.abs(delta)));
     });
+    syncPlayback();
+  }
+  // Грузим и играем только видимые рилсы (±2 от центрального), остальные стоят.
+  function syncPlayback(){
+    items.forEach(item=>{
+      const v=item.querySelector('.hero-video'); if(!v) return;
+      const far=Math.abs(+item.dataset.position)>2;
+      if(far){ v.dataset.off='1'; if(!v.paused) v.pause(); }
+      else if(v.dataset.off!=='0'||v.paused){ v.dataset.off='0'; if(v.preload==='none') v.preload='metadata'; playPreview(v); }
+    });
   }
 
   // Все hero-видео продолжают проигрываться. При выборе одного включаем только его звук.
@@ -941,7 +951,6 @@ document.getElementById('acceptCookie')?.addEventListener('click', () => {
     if(!video) return;
     video.muted=true;
     video.setAttribute('muted','');
-    video.setAttribute('autoplay','');
     video.setAttribute('loop','');
     video.setAttribute('playsinline','');
     video.addEventListener('click',(event)=>{
@@ -953,7 +962,7 @@ document.getElementById('acceptCookie')?.addEventListener('click', () => {
     video.addEventListener('play',()=>item.classList.add('is-playing'));
     video.addEventListener('pause',()=>{
       item.classList.remove('is-playing');
-      if(document.visibilityState==='visible') window.setTimeout(()=>playPreview(video),80);
+      if(document.visibilityState==='visible') if(video.dataset.off!=='1') window.setTimeout(()=>playPreview(video),80);
     });
   });
 
@@ -984,7 +993,6 @@ document.getElementById('acceptCookie')?.addEventListener('click', () => {
   });
   render();
   // Запускаем ВСЕ вертикальные видео независимо друг от друга.
-  items.forEach(item=>playPreview(item.querySelector('.hero-video')));
 })();
 </script>
 
@@ -1269,56 +1277,56 @@ const musicTracks = [
     src: 'assets/audio/bezzvuchnyrezhim.mp3',
     title: 'БЕЗЗВУЧНЫЙ РЕЖИМ',
     description: 'бит для одного из треков альбома "Последний" Саши Ресторатора',
-    cover: 'assets/img/covers/bezzvuchnyrezhim.png'
+    cover: 'assets/img/covers/bezzvuchnyrezhim.jpg'
   },
   
   {
     src: 'assets/audio/kabardinka.mp3',
     title: 'КАБАРДИНКА',
     description: 'аранжировка в стиле современного поп-шансона с живыми и синтезированными инструментами под демку из SUNO под текст и жанр дуэта KABAR & DINA',
-    cover: 'assets/img/covers/kabardinka.png'
+    cover: 'assets/img/covers/kabardinka.jpg'
   },
 
   {
     src: 'assets/audio/ktotebyaobidel.mp3',
     title: 'КТО ТЕБЯ ОБИДЕЛ',
     description: 'аранжировка для Ксюши Рокс по демке из SUNO в стиле поп-рок с живыми и виртуальными инструментами',
-    cover: 'assets/img/covers/ktotebyaobidel.png'
+    cover: 'assets/img/covers/ktotebyaobidel.jpg'
   },
 
   {
     src: 'assets/audio/yapomny.mp3',
     title: 'Я ПОМНЮ',
     description: 'аранжировка для Ксюши Рокс по демке из SUNO в стиле поп-рок с живыми и виртуальными инструментами',
-    cover: 'assets/img/covers/yapomny.png'
+    cover: 'assets/img/covers/yapomny.jpg'
   },
 
   {
     src: 'assets/audio/grustnyepesni.mp3',
     title: 'ГРУСТНЫЕ ПЕСНИ',
     description: 'аранжирова под текст и гармонию Ульяны rebelle в стиле песен Mary Gu',
-    cover: 'assets/img/covers/grustnyepesni.png'
+    cover: 'assets/img/covers/grustnyepesni.jpg'
   },
 
   {
     src: 'assets/audio/nomera.mp3',
     title: 'НОМЕРА',
     description: 'аранжирова под текст и гармонию sorry, we are closed в стиле поп-панк',
-    cover: 'assets/img/covers/nomera.png'
+    cover: 'assets/img/covers/nomera.jpg'
   },
 
   {
     src: 'assets/audio/slovnomenyatutnet.mp3',
     title: 'СЛОВНО МЕНЯ ТУТ НЕТ',
     description: 'дебютный релиз The You-Jin Experience, полностью подготовленный в нашей студии',
-    cover: 'assets/img/covers/slovnomenyatutnet.png'
+    cover: 'assets/img/covers/slovnomenyatutnet.jpg'
   },
 
   {
     src: 'assets/audio/kadry.mp3',
     title: 'КАДРЫ',
     description: 'сделали лёгкую гитарную аранжировку для нового совместного синглаа Саши Носика и WillyWonkka',
-    cover: 'assets/img/covers/kadry.png'
+    cover: 'assets/img/covers/kadry.jpg'
   }
 
 ];
