@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="«Артель» | Студия звукозаписи" />
     
-    <link rel="stylesheet" href="styles.css?v=20261024g">
+    <link rel="stylesheet" href="styles.css?v=20261024h">
 
     <script type="text/javascript">
         function loadYandexMetrika() {
@@ -86,34 +86,34 @@
     <div class="hero-video-gallery" aria-label="Вертикальные видео">
       <div class="hero-video-track" id="heroVideoTrack">
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-01.mp4" loop muted playsinline preload="none" aria-label="Видео студии 1"></video>
+          <video class="hero-video" src="assets/video/hero-01.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-02.mp4" loop muted playsinline preload="none" aria-label="Видео студии 2"></video>
+          <video class="hero-video" src="assets/video/hero-02.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-03.mp4" loop muted playsinline preload="none" aria-label="Видео студии 3"></video>
+          <video class="hero-video" src="assets/video/hero-03.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-04.mp4" loop muted playsinline preload="none" aria-label="Видео студии 4"></video>
+          <video class="hero-video" src="assets/video/hero-04.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-05.mp4" loop muted playsinline preload="none" aria-label="Видео студии 1"></video>
+          <video class="hero-video" src="assets/video/hero-05.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-06.mp4" loop muted playsinline preload="none" aria-label="Видео студии 2"></video>
+          <video class="hero-video" src="assets/video/hero-06.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-07.mp4" loop muted playsinline preload="none" aria-label="Видео студии 3"></video>
+          <video class="hero-video" src="assets/video/hero-07.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-08.mp4" loop muted playsinline preload="none" aria-label="Видео студии 4"></video>
+          <video class="hero-video" src="assets/video/hero-08.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-09.mp4" loop muted playsinline preload="none" aria-label="Видео студии 3"></video>
+          <video class="hero-video" src="assets/video/hero-09.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-10.mp4" loop muted playsinline preload="none" aria-label="Видео студии 4"></video>
+          <video class="hero-video" src="assets/video/hero-10.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
         </article>
       </div>
     </div>
@@ -905,7 +905,7 @@ document.getElementById('acceptCookie')?.addEventListener('click', () => {
   function syncPlayback(){
     items.forEach(item=>{
       const v=item.querySelector('.hero-video'); if(!v) return;
-      const far=Math.abs(+item.dataset.position)>2;
+      const far=false;
       if(far){ v.dataset.off='1'; if(!v.paused) v.pause(); }
       else if(v.dataset.off!=='0'||v.paused){ v.dataset.off='0'; if(v.preload==='none') v.preload='metadata'; playPreview(v); }
     });
@@ -951,6 +951,7 @@ document.getElementById('acceptCookie')?.addEventListener('click', () => {
     if(!video) return;
     video.muted=true;
     video.setAttribute('muted','');
+    video.setAttribute('autoplay','');
     video.setAttribute('loop','');
     video.setAttribute('playsinline','');
     video.addEventListener('click',(event)=>{
@@ -1620,7 +1621,7 @@ if (audioPlayer) {
     function render(){
       items.forEach(function(it,i){
         var d=i-active;if(d>n/2)d-=n;if(d<-n/2)d+=n;
-        it.dataset.position=d;it.classList.toggle('is-active',d===0);
+        it.dataset.position=d;it.classList.toggle('is-active',d===0);if(d!==0)it.classList.remove('unlocked');
         it.style.setProperty('--cf-x',d*gap+'%');
         it.style.setProperty('--cf-z',Math.max(-700,-Math.abs(d)*200)+'px');
         it.style.setProperty('--cf-r',Math.max(-52,Math.min(52,d*-24))+'deg');
@@ -1631,9 +1632,17 @@ if (audioPlayer) {
       });
     }
     function go(k){active=((active+k)%n+n)%n;render();}
+    var touch=window.matchMedia&&window.matchMedia('(hover:none)').matches;
+    if(box.classList.contains('cf-video')&&touch){
+      items.forEach(function(it){var sh=document.createElement('div');sh.className='cf-shield';var m=it.querySelector('.media');if(m)m.appendChild(sh);});
+    }
     items.forEach(function(it,i){
       it.addEventListener('click',function(e){
-        if(moved||i===active)return;
+        if(moved)return;
+        if(i===active){
+          if(e.target.classList&&e.target.classList.contains('cf-shield')){e.preventDefault();e.stopPropagation();it.classList.add('unlocked');}
+          return;
+        }
         e.preventDefault();e.stopPropagation();active=i;render();
       },true);
     });

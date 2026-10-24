@@ -5615,3 +5615,9 @@ a.music-card-more::after{content:" →"}
 .rc-stars{margin-top:16px !important;padding-top:0 !important}
 .cf-reviews{--cf-h:500px}
 @media (max-width:600px){.cf-reviews{--cf-h:520px}}
+
+/* Тёмный фон под страницей (на телефонах снизу иначе проступает белый) */
+html{background-color:#1b1b1b !important}
+.cf-shield{position:absolute;inset:0;z-index:5;background:transparent;touch-action:pan-y}
+.cf-item.unlocked .cf-shield{display:none}
+.cf-item .media{position:relative}
