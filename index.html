@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="«Артель» | Студия звукозаписи" />
     
-    <link rel="stylesheet" href="styles.css?v=20261024f">
+    <link rel="stylesheet" href="styles.css?v=20261024g">
 
     <script type="text/javascript">
         function loadYandexMetrika() {
@@ -901,11 +901,11 @@ document.getElementById('acceptCookie')?.addEventListener('click', () => {
     });
     syncPlayback();
   }
-  // Грузим и играем только видимые рилсы (±3 от центрального), остальные стоят.
+  // Грузим и играем только видимые рилсы (±2 от центрального), остальные стоят.
   function syncPlayback(){
     items.forEach(item=>{
       const v=item.querySelector('.hero-video'); if(!v) return;
-      const far=Math.abs(+item.dataset.position)>3;
+      const far=Math.abs(+item.dataset.position)>2;
       if(far){ v.dataset.off='1'; if(!v.paused) v.pause(); }
       else if(v.dataset.off!=='0'||v.paused){ v.dataset.off='0'; if(v.preload==='none') v.preload='metadata'; playPreview(v); }
     });
