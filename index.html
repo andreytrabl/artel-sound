@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="«Артель» | Студия звукозаписи" />
     
-    <link rel="stylesheet" href="styles.css?v=20261024h">
+    <link rel="stylesheet" href="styles.css?v=20261024i">
 
     <script type="text/javascript">
         function loadYandexMetrika() {
@@ -58,7 +58,7 @@
 </head>
 <body>
 <video class="site-background-video" autoplay muted loop playsinline preload="metadata" poster="hero-poster.jpg" aria-hidden="true">
-  <source src="hero.mp4" type="video/mp4">
+  <source src="hero-bg-v2.mp4" type="video/mp4">
 </video>
 <div class="site-background-overlay" aria-hidden="true"></div>
 
@@ -86,34 +86,34 @@
     <div class="hero-video-gallery" aria-label="Вертикальные видео">
       <div class="hero-video-track" id="heroVideoTrack">
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-01.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
+          <video class="hero-video" muted src="assets/video/reel-01-v2.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-02.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
+          <video class="hero-video" muted src="assets/video/reel-02-v2.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-03.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
+          <video class="hero-video" muted src="assets/video/reel-03-v2.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-04.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
+          <video class="hero-video" muted src="assets/video/reel-04-v2.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-05.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
+          <video class="hero-video" muted src="assets/video/reel-05-v2.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-06.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
+          <video class="hero-video" muted src="assets/video/reel-06-v2.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-07.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
+          <video class="hero-video" muted src="assets/video/reel-07-v2.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-08.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
+          <video class="hero-video" muted src="assets/video/reel-08-v2.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-09.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
+          <video class="hero-video" muted src="assets/video/reel-09-v2.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-10.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
+          <video class="hero-video" muted src="assets/video/reel-10-v2.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
         </article>
       </div>
     </div>
@@ -238,9 +238,9 @@
 
       <div class="artel-case-controls">
         <div class="artel-case-buttons">
-          <button class="artel-case-btn" type="button" data-action="prev" aria-label="Предыдущий трек">◀</button>
-          <button class="artel-case-btn artel-case-play" type="button" data-action="play" aria-label="Воспроизвести">▶</button>
-          <button class="artel-case-btn" type="button" data-action="next" aria-label="Следующий трек">▶</button>
+          <button class="artel-case-btn" type="button" data-action="prev" aria-label="Предыдущий трек">◀︎</button>
+          <button class="artel-case-btn artel-case-play" type="button" data-action="play" aria-label="Воспроизвести">▶︎</button>
+          <button class="artel-case-btn" type="button" data-action="next" aria-label="Следующий трек">▶︎</button>
         </div>
 
         <div class="artel-case-progress-wrap">
@@ -1600,7 +1600,7 @@ if (audioPlayer) {
   });
 
   audio.addEventListener('pause', () => {
-    playButton.textContent = '▶';
+    playButton.textContent = '▶\uFE0E';
     playButton.setAttribute('aria-label', 'Воспроизвести');
     audioPlayer.classList.remove('is-playing');
     clearVisualizer();
