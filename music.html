@@ -12,7 +12,7 @@
 <body class="music-page">
 
 <video class="site-background-video" autoplay muted loop playsinline preload="metadata" poster="hero-poster.jpg" aria-hidden="true">
-  <source src="hero.mp4" type="video/mp4">
+  <source src="hero-bg-v2.mp4" type="video/mp4">
 </video>
 <div class="site-background-overlay" aria-hidden="true"></div>
 
@@ -133,9 +133,9 @@
 
       <div class="artel-case-controls">
         <div class="artel-case-buttons">
-          <button class="artel-case-btn" type="button" data-action="prev" aria-label="Предыдущий трек">◀</button>
-          <button class="artel-case-btn artel-case-play" type="button" data-action="play" aria-label="Воспроизвести">▶</button>
-          <button class="artel-case-btn" type="button" data-action="next" aria-label="Следующий трек">▶</button>
+          <button class="artel-case-btn" type="button" data-action="prev" aria-label="Предыдущий трек">◀︎</button>
+          <button class="artel-case-btn artel-case-play" type="button" data-action="play" aria-label="Воспроизвести">▶︎</button>
+          <button class="artel-case-btn" type="button" data-action="next" aria-label="Следующий трек">▶︎</button>
         </div>
 
         <div class="artel-case-progress-wrap">
@@ -650,7 +650,7 @@ if (audioPlayer) {
   });
 
   audio.addEventListener('pause', () => {
-    playButton.textContent = '▶';
+    playButton.textContent = '▶\uFE0E';
     playButton.setAttribute('aria-label', 'Воспроизвести');
     audioPlayer.classList.remove('is-playing');
     clearVisualizer();

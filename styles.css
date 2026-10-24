@@ -5621,3 +5621,28 @@ html{background-color:#1b1b1b !important}
 .cf-shield{position:absolute;inset:0;z-index:5;background:transparent;touch-action:pan-y}
 .cf-item.unlocked .cf-shield{display:none}
 .cf-item .media{position:relative}
+
+/* Фоновое видео на всю высоту, даже когда панель браузера на телефоне прячется */
+.site-background-video{height:100vh !important;min-height:100vh !important}
+@supports (height:100lvh){
+  .site-background-video{height:100lvh !important;min-height:100lvh !important}
+  .site-background-overlay{height:100lvh}
+}
+@media (max-width:900px){
+  .site-background-video{height:100vh !important;min-height:100vh !important}
+  @supports (height:100lvh){.site-background-video{height:100lvh !important;min-height:100lvh !important}}
+}
+
+/* Имена в карточках отзывов — шрифт заголовков, капсом */
+.rc-name{font-family:"Benzin",sans-serif !important;font-weight:800;text-transform:uppercase;font-size:17px;letter-spacing:-.2px;line-height:1.1}
+
+/* Яндекс Карты: выше на телефоне, чтобы карточка организации не обрезалась */
+@media (max-width:900px){
+  .map-container{aspect-ratio:auto !important;height:640px !important}
+}
+@media (max-width:600px){
+  .map-container{aspect-ratio:auto !important;height:660px !important}
+}
+
+/* Кнопки плеера — текстовые значки, не эмодзи */
+.artel-case-btn{font-variant-emoji:text;font-family:"Segoe UI Symbol","Apple Symbols","Arial Unicode MS",sans-serif}
