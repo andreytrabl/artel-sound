@@ -1,8 +1,8 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#1b1b1b;color:#fafafc;font-family:"TikTok",sans-serif;scroll-behavior:smooth}
 
-@font-face{font-family:"Benzin";src:url("fonts/Benzin Extra Bold.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
-@font-face{font-family:"TikTok";src:url("fonts/TikTokSans-Regular.ttf")}
+@font-face{font-family:"Benzin";src:url("fonts/Benzin Extra Bold.woff") format("woff"),url("fonts/Benzin Extra Bold.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"TikTok";src:url("fonts/TikTokSans-Regular.woff") format("woff"),url("fonts/TikTokSans-Regular.ttf") format("truetype");font-display:swap}
 
 .header{
 position:fixed;
