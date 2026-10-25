@@ -1610,6 +1610,17 @@ if (audioPlayer) {
     track.addEventListener('pointermove',function(e){if(down){dx=e.clientX-sx;if(Math.abs(dx)>8)moved=true;}});
     function end(){if(!down)return;down=false;if(Math.abs(dx)>45)go(dx<0?1:-1);setTimeout(function(){moved=false;},60);}
     track.addEventListener('pointerup',end);track.addEventListener('pointercancel',end);track.addEventListener('pointerleave',end);
+    var wl=0,wacc=0;
+    box.addEventListener('wheel',function(e){
+      var ax=Math.abs(e.deltaX),ay=Math.abs(e.deltaY);
+      if(Math.max(ax,ay)<2)return;
+      e.preventDefault();
+      var now=Date.now();
+      wacc+=(ax>ay?e.deltaX:e.deltaY);
+      if(now-wl<380){wacc=0;return;}
+      if(Math.abs(wacc)>=20){go(wacc>0?1:-1);wl=now;wacc=0;}
+    },{passive:false});
+    track.style.touchAction='pan-y';
     render();
   }
   document.querySelectorAll('.video-grid').forEach(function(g){
