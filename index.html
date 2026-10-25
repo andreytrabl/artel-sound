@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="«Артель» | Студия звукозаписи" />
     
-    <link rel="stylesheet" href="styles.css?v=20261025b">
+    <link rel="stylesheet" href="styles.css?v=20261025c">
 
     <script type="text/javascript">
         function loadYandexMetrika() {
@@ -1623,8 +1623,9 @@ if (audioPlayer) {
     track.style.touchAction='pan-y';
     render();
   }
-  document.querySelectorAll('.video-grid').forEach(function(g){
-    var w=document.createElement('div');w.className='cf cf-video';w.dataset.gap='62';
+  document.querySelectorAll('.video-grid,.photo-grid').forEach(function(g){
+    var ph=g.classList.contains('photo-grid');
+    var w=document.createElement('div');w.className=ph?'cf cf-photo':'cf cf-video';w.dataset.gap=ph?'56':'62';
     g.parentNode.insertBefore(w,g);g.classList.add('cf-track');w.appendChild(g);
     [].forEach.call(g.children,function(c){c.classList.add('cf-item');});
   });
