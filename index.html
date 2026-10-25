@@ -87,34 +87,34 @@
     <div class="hero-video-gallery" aria-label="Вертикальные видео">
       <div class="hero-video-track" id="heroVideoTrack">
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-01.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
+          <video class="hero-video" src="assets/video/hero-01.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-02.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
+          <video class="hero-video" src="assets/video/hero-02.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-03.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
+          <video class="hero-video" src="assets/video/hero-03.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-04.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
+          <video class="hero-video" src="assets/video/hero-04.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-05.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
+          <video class="hero-video" src="assets/video/hero-05.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-06.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
+          <video class="hero-video" src="assets/video/hero-06.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-07.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
+          <video class="hero-video" src="assets/video/hero-07.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-08.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
+          <video class="hero-video" src="assets/video/hero-08.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-09.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
+          <video class="hero-video" src="assets/video/hero-09.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
         </article>
         <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-10.mp4" autoplay loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
+          <video class="hero-video" src="assets/video/hero-10.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
         </article>
       </div>
     </div>
@@ -895,10 +895,7 @@ document.getElementById('acceptCookie')?.addEventListener('click', () => {
     if(!video) return;
     activeIndex=items.indexOf(item);
     render();
-    muteOtherVideos(video);
-    video.muted=false;
-    video.removeAttribute('muted');
-    video.volume=1;
+    video.muted=true;
     video.play().catch(()=>{});
   }
   function snap(direction){
