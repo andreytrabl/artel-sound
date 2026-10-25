@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Согласие на размещение отзыва | Студия звукозаписи «Артель»</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css?v=20261025a">
+  <style>
+    .consent-page{min-height:100vh;display:flex;flex-direction:column}
+    .consent-top{padding:22px 8%;display:flex;align-items:center}
+    .consent-top a{color:#fafafc;text-decoration:none;font:800 13px/1 "Benzin",sans-serif;letter-spacing:.4px}
+    .consent-top a:hover{color:#ff8a00}
+    .consent-main{width:min(860px,100%);margin:0 auto;padding:10px 20px 60px;flex:1}
+    .consent-main h1{font:800 clamp(26px,5.4vw,52px)/1.02 "Benzin",sans-serif;margin:18px 0 12px;letter-spacing:-.8px;text-transform:uppercase}
+    .consent-lead{color:rgba(250,250,252,.72);font-size:17px;line-height:1.5;margin:0 0 26px}
+    .consent-card{background:linear-gradient(145deg,#2a2a2a,#202020);border:1px solid rgba(250,250,252,.18);border-radius:24px;padding:clamp(20px,3vw,34px);box-shadow:0 18px 50px rgba(0,0,0,.28);margin-bottom:26px}
+    .consent-card h2{font:800 clamp(18px,2.6vw,24px)/1.15 "Benzin",sans-serif;margin:0 0 14px;text-transform:uppercase}
+    .consent-card p,.consent-card li{font-size:16px;line-height:1.55;color:rgba(250,250,252,.82)}
+    .consent-card ul{padding-left:20px;margin:10px 0}
+    .consent-card a{color:#ff8a00}
+    .consent-form-frame{width:100%;min-height:900px;border:0;border-radius:16px;background:#fff;display:block}
+    .consent-form-stub{padding:24px;border:1px dashed rgba(250,250,252,.35);border-radius:16px;color:rgba(250,250,252,.7);text-align:center}
+    .consent-footer{padding:22px 8%;text-align:center;font-size:14px;color:rgba(250,250,252,.6)}
+    .consent-footer a{color:#ff8a00}
+  </style>
+</head>
+<body class="consent-page">
+
+<div class="consent-top"><a href="index.html">← НА ГЛАВНУЮ</a></div>
+
+<main class="consent-main">
+  <h1>Согласие на размещение отзыва</h1>
+  <p class="consent-lead">Мы хотим опубликовать ваш отзыв о работе студии «Артель» на сайте. Прочитайте условия и заполните форму ниже.</p>
+
+  <section class="consent-card">
+    <h2>Текст согласия</h2>
+    <p>Я, заполняя форму ниже, свободно, своей волей и в своём интересе даю согласие самозанятому Николаеву Андрею Андриянычу (ИНН 710711027358, студия звукозаписи «Артель», далее — «Студия») на обработку и публичное размещение следующих данных:</p>
+    <ul>
+      <li>моего имени (в том виде, в каком я указал(а) его в форме);</li>
+      <li>моей фотографии, которую я загрузил(а) в форму;</li>
+      <li>текста моего отзыва о работе Студии.</li>
+    </ul>
+    <p><strong>Где размещаются данные:</strong> на сайте <a href="https://artel-sound.ru/">artel-sound.ru</a> (в блоке отзывов) и на страницах Студии в социальных сетях.</p>
+    <p><strong>Цель:</strong> информирование потенциальных клиентов о работе Студии.</p>
+    <p><strong>Действия с данными:</strong> сбор, запись, хранение, публикация, удаление. Данные хранятся в электронной таблице Студии, доступ к которой имеет только Студия.</p>
+    <p><strong>Срок:</strong> до момента отзыва согласия.</p>
+    <p><strong>Как отозвать согласие:</strong> напишите на <a href="mailto:studio-artel-tula@yandex.ru">studio-artel-tula@yandex.ru</a> — отзыв будет удалён с сайта в разумный срок, данные будут удалены из таблицы.</p>
+    <p>Подробнее: <a href="privacy.html" target="_blank" rel="noopener">Политика конфиденциальности</a>.</p>
+  </section>
+
+  <section class="consent-card">
+    <h2>Форма</h2>
+    <p style="margin-top:0">Укажите имя, прикрепите фото (квадратное, лучше от 600×600), напишите отзыв и отметьте согласие.</p>
+    <div id="consentFormBox"></div>
+  </section>
+</main>
+
+<div class="consent-footer">© Студия звукозаписи «Артель», 2026</div>
+
+<script>
+// ID формы из Яндекс Форм: ссылка вида https://forms.yandex.ru/u/ВАШ_ID/
+// Сюда вставляется только ID формы. Ссылка на таблицу в коде сайта не нужна и не хранится.
+const YANDEX_FORM_ID = '';
+
+(function(){
+  const box = document.getElementById('consentFormBox');
+  if (!YANDEX_FORM_ID) {
+    box.innerHTML = '<div class="consent-form-stub">Форма скоро появится здесь.</div>';
+    return;
+  }
+  const f = document.createElement('iframe');
+  f.className = 'consent-form-frame';
+  f.title = 'Форма согласия на размещение отзыва';
+  f.loading = 'lazy';
+  f.src = 'https://forms.yandex.ru/u/' + encodeURIComponent(YANDEX_FORM_ID) + '/?iframe=1';
+  box.appendChild(f);
+})();
+</script>
+</body>
+</html>
