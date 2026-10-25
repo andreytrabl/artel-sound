@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="«Артель» | Студия звукозаписи" />
     
-    <link rel="stylesheet" href="styles.css?v=20261025c">
+    <link rel="stylesheet" href="styles.css?v=20261025d">
 
     <script type="text/javascript">
         function loadYandexMetrika() {
@@ -419,9 +419,9 @@
 <div class="cf cf-reviews" data-gap="74">
   <div class="cf-track">
     <article class="rc-card cf-item">
-      <img class="rc-photo" src="assets/img/reviews/review1.jpg?v=2" alt="Фото клиента 1" loading="lazy" decoding="async">
-      <h3 class="rc-name">Имя Фамилия <svg class="rc-note" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#ffc21a"/><path d="M15.8 5.5v8.6a2.7 2.7 0 1 1-1.5-2.4V8.3l-4.1 1v6.2a2.7 2.7 0 1 1-1.5-2.4V7.3Z" fill="#1b1b1b"/></svg></h3>
-      <p class="rc-text">Профессионалы своего дела, <b>быстро и качественно оформили песню под мои запросы.</b> Спасибо!</p>
+      <img class="rc-photo" src="assets/img/reviews/review1.jpg?v=3" alt="Фото клиента 1" loading="lazy" decoding="async">
+      <h3 class="rc-name">Ульяна Горелькова <svg class="rc-note" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#ffc21a"/><path d="M15.8 5.5v8.6a2.7 2.7 0 1 1-1.5-2.4V8.3l-4.1 1v6.2a2.7 2.7 0 1 1-1.5-2.4V7.3Z" fill="#1b1b1b"/></svg></h3>
+      <p class="rc-text">Хочется выразить огромную благодарность Андрею Николаеву за волшебный «пинок», который требовался мне многие годы. Никогда ранее я не испытывала такой спектр эмоций!) Во-первых, я написала песню, да, сама. Но я умею играть только на клавишах, а мне нужна была аранжировка. <b>Полнейшие гении в лице Андрея и Евгения написали мне музыку с нуля!</b> Ещё находясь на студии, я была в потрясении от того, что происходит, потому что музыка появилась у меня буквально на глазах, учитывая то, что я понятия не имела о том, чего мне хочется слышать в принципе. Во-вторых, атмосфера во время записи. Представьте себе, что вы заходите в гости к лучшим друзьям, которые поддержат и помогут, и словом, и делом. Советую смело обращаться в «Артель», потому что нигде вы такого больше не найдёте. Это я вам говорю. Большое спасибо ребятам за возможность снова почувствовать себя маленькой девочкой, которая написала стихи и хотела воплотить их во что-то дельное. 🫱‍🫲</p>
       <div class="rc-stars" aria-label="Оценка 5 из 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.8 2.7 5.7 6.2.8-4.6 4.3 1.2 6.2L12 16.7 6.5 19.8l1.2-6.2L3.1 9.3l6.2-.8Z"/></svg></div>
     </article>
     <article class="rc-card cf-item">
@@ -1630,6 +1630,31 @@ if (audioPlayer) {
     [].forEach.call(g.children,function(c){c.classList.add('cf-item');});
   });
   document.querySelectorAll('.cf').forEach(initCF);
+})();
+</script>
+<script>
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.cf-reviews .rc-card'));
+  var dlg=document.createElement('div');dlg.className='rc-modal';
+  dlg.innerHTML='<div class="rc-modal-box"><button type="button" class="rc-modal-close" aria-label="Закрыть">×</button><div class="rc-modal-name"></div><div class="rc-modal-text"></div></div>';
+  document.body.appendChild(dlg);
+  function close(){dlg.classList.remove('open');document.body.style.overflow='';}
+  dlg.addEventListener('click',function(e){if(e.target===dlg||e.target.classList.contains('rc-modal-close'))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  cards.forEach(function(c){
+    var t=c.querySelector('.rc-text');if(!t)return;
+    function check(){
+      var more=c.querySelector('.rc-more');
+      if(t.scrollHeight>t.clientHeight+2){
+        if(!more){more=document.createElement('button');more.type='button';more.className='rc-more';more.textContent='Читать полностью';
+          t.insertAdjacentElement('afterend',more);
+          more.addEventListener('click',function(e){e.stopPropagation();
+            dlg.querySelector('.rc-modal-name').textContent=c.querySelector('.rc-name').textContent.trim();
+            dlg.querySelector('.rc-modal-text').innerHTML=t.innerHTML;dlg.classList.add('open');document.body.style.overflow='hidden';});}
+      }
+    }
+    check();window.addEventListener('load',check);window.addEventListener('resize',check);
+  });
 })();
 </script>
 </body>
