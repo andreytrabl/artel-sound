@@ -860,13 +860,22 @@ document.getElementById('acceptCookie')?.addEventListener('click', () => {
 </script>
 
 <script>
+window.randStart=function(key,n){
+  var r=Math.floor(Math.random()*n),last=-1;
+  try{last=parseInt(localStorage.getItem('rs_'+key),10);}catch(e){}
+  if(n>1&&r===last)r=(r+1+Math.floor(Math.random()*(n-1)))%n;
+  try{localStorage.setItem('rs_'+key,String(r));}catch(e){}
+  return r;
+};
+</script>
+<script>
 
 (() => {
   const track = document.getElementById('heroVideoTrack');
   if (!track) return;
   const items = Array.from(track.querySelectorAll('.hero-video-item'));
   if (!items.length) return;
-  let activeIndex = 0, pointerDown = false, startX = 0, dragDistance = 0, suppressClick = false;
+  let activeIndex = window.randStart('hero',items.length), pointerDown = false, startX = 0, dragDistance = 0, suppressClick = false;
   const wrap = (index) => (index % items.length + items.length) % items.length;
 
   function render() {
@@ -1590,7 +1599,7 @@ if (audioPlayer) {
 <script>
 (function(){
   function initCF(box){
-    var gap=parseFloat(box.dataset.gap)||58,track=box.querySelector('.cf-track'),items=[].slice.call(track.children),n=items.length,active=0,down=false,sx=0,dx=0,moved=false;
+    var gap=parseFloat(box.dataset.gap)||58,track=box.querySelector('.cf-track'),items=[].slice.call(track.children),n=items.length,active=window.randStart('cf-'+(box.id||[].indexOf.call(document.querySelectorAll('.cf'),box)),items.length),down=false,sx=0,dx=0,moved=false;
     function render(){
       items.forEach(function(it,i){
         var d=i-active;if(d>n/2)d-=n;if(d<-n/2)d+=n;
