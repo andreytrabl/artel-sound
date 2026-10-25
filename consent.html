@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Согласие на размещение отзыва | Студия звукозаписи «Артель»</title>
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="styles.css?v=20261025a">
+  <link rel="stylesheet" href="styles.css?v=20261025b">
   <style>
     .consent-page{min-height:100vh;display:flex;flex-direction:column}
     .consent-top{padding:22px 8%;display:flex;align-items:center}
@@ -20,10 +20,9 @@
     .consent-card p,.consent-card li{font-size:16px;line-height:1.55;color:rgba(250,250,252,.82)}
     .consent-card ul{padding-left:20px;margin:10px 0}
     .consent-card a{color:#ff8a00}
-    .consent-form-frame{width:100%;min-height:900px;border:0;border-radius:16px;background:#fff;display:block}
+    .consent-form-frame{width:100%;max-width:100%;height:760px;border:0;border-radius:16px;background:#fff;display:block}
+    @media (max-width:600px){.consent-form-frame{height:820px}.consent-card{padding:16px}}
     .consent-form-stub{padding:24px;border:1px dashed rgba(250,250,252,.35);border-radius:16px;color:rgba(250,250,252,.7);text-align:center}
-    .consent-footer{padding:22px 8%;text-align:center;font-size:14px;color:rgba(250,250,252,.6)}
-    .consent-footer a{color:#ff8a00}
   </style>
 </head>
 <body class="consent-page">
@@ -53,30 +52,22 @@
   <section class="consent-card">
     <h2>Форма</h2>
     <p style="margin-top:0">Укажите имя, прикрепите фото (квадратное, лучше от 600×600), напишите отзыв и отметьте согласие.</p>
-    <div id="consentFormBox"></div>
+    <div id="consentFormBox">
+      <iframe class="consent-form-frame" src="https://forms.yandex.ru/u/6adde399902902be221be4ac?iframe=1" frameborder="0" name="ya-form-6adde399902902be221be4ac" title="Форма согласия на размещение отзыва" loading="lazy"></iframe>
+    </div>
+    <script src="https://forms.yandex.ru/_static/embed.js"></script>
   </section>
 </main>
 
-<div class="consent-footer">© Студия звукозаписи «Артель», 2026</div>
+<footer class="music-footer">
+  <div class="music-footer-links">
+    <a href="privacy.html" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+    <span aria-hidden="true">|</span>
+    <a href="terms.html" target="_blank" rel="noopener noreferrer">Пользовательское соглашение</a>
+  </div>
+  <div class="music-footer-copy">© Студия звукозаписи «Артель», 2026</div>
+  <div class="music-footer-note">Meta Platforms Inc. и принадлежащая ей социальная сеть Instagram признаны экстремистскими организациями, их деятельность запрещена на территории РФ.</div>
+</footer>
 
-<script>
-// ID формы из Яндекс Форм: ссылка вида https://forms.yandex.ru/u/ВАШ_ID/
-// Сюда вставляется только ID формы. Ссылка на таблицу в коде сайта не нужна и не хранится.
-const YANDEX_FORM_ID = '6adde399902902be221be4ac';
-
-(function(){
-  const box = document.getElementById('consentFormBox');
-  if (!YANDEX_FORM_ID) {
-    box.innerHTML = '<div class="consent-form-stub">Форма скоро появится здесь.</div>';
-    return;
-  }
-  const f = document.createElement('iframe');
-  f.className = 'consent-form-frame';
-  f.title = 'Форма согласия на размещение отзыва';
-  f.loading = 'lazy';
-  f.src = 'https://forms.yandex.ru/u/' + encodeURIComponent(YANDEX_FORM_ID) + '/?iframe=1';
-  box.appendChild(f);
-})();
-</script>
 </body>
 </html>
