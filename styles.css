@@ -5655,3 +5655,5 @@ html{background-color:#1b1b1b !important}
 .rc-links .music-review-open{flex:1 1 0 !important;min-width:0;max-width:300px;justify-content:center;white-space:nowrap}
 @media (max-width:600px){.rc-links .music-review-open{font-size:11px !important;padding:0 8px !important;gap:6px;letter-spacing:0 !important}.rc-links .music-review-open svg{width:16px;height:16px;flex:0 0 auto}}
 @media (max-width:420px){.rc-links .music-review-open{font-size:10px !important;padding:0 6px !important}}
+
+.music-footer-note{margin:8px auto 0;max-width:720px;font-size:12px;line-height:1.4;opacity:.6;text-align:center}
