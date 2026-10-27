@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="«Артель» | Студия звукозаписи" />
     
-    <link rel="stylesheet" href="styles.css?v=20261025e">
+    <link rel="stylesheet" href="styles.css?v=20261027a">
 
     <script type="text/javascript">
         function loadYandexMetrika() {
@@ -58,8 +58,8 @@
 </head>
 <body>
 <video class="site-background-video" autoplay muted loop playsinline preload="auto" poster="hero.png" aria-hidden="true">
-  <source src="hero.mp4" type='video/mp4; codecs="hvc1.2.4.L120.B0"'>
-  <source src="hero-h264.mp4" type="video/mp4">
+  <source src="hero-720.mp4" type='video/mp4; codecs="hvc1.2.4.L93.B0"'>
+  <source src="hero-720-h264.mp4" type="video/mp4">
 </video>
 <div class="site-background-overlay" aria-hidden="true"></div>
 
@@ -82,43 +82,6 @@
   <img src="assets/logo.png" class="hero-logo" alt="Артель — студия звукозаписи">
   <div class="hero-overlay"></div>
 
-  <div class="hero-content">
-    
-    <div class="hero-video-gallery" aria-label="Вертикальные видео">
-      <div class="hero-video-track" id="heroVideoTrack">
-        <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-01.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
-        </article>
-        <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-02.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
-        </article>
-        <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-03.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
-        </article>
-        <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-04.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
-        </article>
-        <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-05.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 1"></video>
-        </article>
-        <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-06.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 2"></video>
-        </article>
-        <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-07.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
-        </article>
-        <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-08.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
-        </article>
-        <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-09.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 3"></video>
-        </article>
-        <article class="hero-video-item">
-          <video class="hero-video" src="assets/video/hero-10.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Видео студии 4"></video>
-        </article>
-      </div>
-    </div>
-  </div>
 
   <div class="hero-bottom-gradient"></div>
 </section>
@@ -868,116 +831,7 @@ window.randStart=function(key,n){
   return r;
 };
 </script>
-<script>
 
-(() => {
-  const track = document.getElementById('heroVideoTrack');
-  if (!track) return;
-  const items = Array.from(track.querySelectorAll('.hero-video-item'));
-  if (!items.length) return;
-  let activeIndex = window.randStart('hero',items.length), pointerDown = false, startX = 0, dragDistance = 0, suppressClick = false;
-  const wrap = (index) => (index % items.length + items.length) % items.length;
-
-  function render() {
-    const count = items.length;
-    items.forEach((item,index) => {
-      let delta=index-activeIndex;
-      if(delta>count/2) delta-=count;
-      if(delta<-count/2) delta+=count;
-      item.dataset.position=delta;
-      item.classList.toggle('is-active',delta===0);
-      item.style.setProperty('--cover-x',`${delta*58}%`);
-      item.style.setProperty('--cover-z',`${Math.max(-620,-Math.abs(delta)*210)}px`);
-      item.style.setProperty('--cover-rotate',`${delta*-24}deg`);
-      item.style.setProperty('--cover-scale',delta===0?'1':(Math.abs(delta)===1?'0.82':'0.68'));
-      item.style.setProperty('--cover-opacity',Math.abs(delta)>3?'0':'1');
-      item.style.setProperty('--cover-zindex',String(100-Math.abs(delta)));
-    });
-  }
-
-  // Все hero-видео продолжают проигрываться. При выборе одного включаем только его звук.
-  function muteOtherVideos(except){
-    items.forEach(item=>{
-      const video=item.querySelector('.hero-video');
-      if(!video||video===except) return;
-      video.muted=true;
-      video.setAttribute('muted','');
-    });
-  }
-  function playPreview(video){
-    if(!video) return;
-    video.muted=true;
-    video.setAttribute('muted','');
-    video.setAttribute('autoplay','');
-    video.setAttribute('playsinline','');
-    video.play().catch(()=>{});
-  }
-  function playWithSound(item){
-    const video=item.querySelector('.hero-video');
-    if(!video) return;
-    activeIndex=items.indexOf(item);
-    render();
-    video.muted=true;
-    video.play().catch(()=>{});
-  }
-  function snap(direction){
-    activeIndex=wrap(activeIndex+direction);
-    render();
-    const activeVideo=items[activeIndex].querySelector('.hero-video');
-    if(activeVideo){ muteOtherVideos(activeVideo); playPreview(activeVideo); }
-  }
-
-  items.forEach((item,index)=>{
-    const video=item.querySelector('.hero-video');
-    if(!video) return;
-    video.muted=true;
-    video.setAttribute('muted','');
-    video.setAttribute('autoplay','');
-    video.setAttribute('loop','');
-    video.setAttribute('playsinline','');
-    video.addEventListener('click',(event)=>{
-      event.stopPropagation();
-      if(suppressClick||Math.abs(dragDistance)>8) return;
-      if(activeIndex!==index){ activeIndex=index; render(); }
-      playWithSound(item);
-    });
-    video.addEventListener('play',()=>item.classList.add('is-playing'));
-    video.addEventListener('pause',()=>{
-      item.classList.remove('is-playing');
-      if(document.visibilityState==='visible') window.setTimeout(()=>playPreview(video),80);
-    });
-  });
-
-  track.addEventListener('pointerdown',(event)=>{
-    pointerDown=true; startX=event.clientX; dragDistance=0; track.setPointerCapture?.(event.pointerId);
-  });
-  track.addEventListener('pointermove',(event)=>{ if(pointerDown) dragDistance=event.clientX-startX; });
-  const finishDrag=()=>{
-    if(!pointerDown) return;
-    pointerDown=false;
-    if(Math.abs(dragDistance)>45){
-      suppressClick=true;
-      snap(dragDistance<0?1:-1);
-      window.setTimeout(()=>{suppressClick=false;},100);
-    }
-    dragDistance=0;
-  };
-  track.addEventListener('pointerup',finishDrag);
-  track.addEventListener('pointercancel',finishDrag);
-  track.addEventListener('wheel',(event)=>{
-    if(Math.abs(event.deltaY)<=Math.abs(event.deltaX)) return;
-    event.preventDefault(); snap(event.deltaY>0?1:-1);
-  },{passive:false});
-  document.addEventListener('keydown',(event)=>{
-    if(!track.matches(':hover')) return;
-    if(event.key==='ArrowRight') snap(1);
-    if(event.key==='ArrowLeft') snap(-1);
-  });
-  render();
-  // Запускаем ВСЕ вертикальные видео независимо друг от друга.
-  items.forEach(item=>playPreview(item.querySelector('.hero-video')));
-})();
-</script>
 
 <script>
 

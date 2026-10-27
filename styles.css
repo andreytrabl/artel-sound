@@ -5686,3 +5686,6 @@ html{background-color:#1b1b1b !important}
 @keyframes logos-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:700px){.logos-set img{height:40px;margin:0 24px}.logos-track{animation-duration:30s}}
 @media (prefers-reduced-motion:reduce){.logos-track{animation:none}}
+
+/* лого по центру экрана на всех устройствах (рилсов в hero больше нет) */
+.hero > .hero-logo{position:absolute !important;left:50% !important;top:50% !important;right:auto !important;bottom:auto !important;transform:translate(-50%,-50%) !important;width:min(760px,86vw) !important;max-width:86vw !important;height:auto !important;max-height:70vh !important;object-fit:contain !important;margin:0 !important}
