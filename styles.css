@@ -5689,3 +5689,15 @@ html{background-color:#1b1b1b !important}
 
 /* лого по центру экрана на всех устройствах (рилсов в hero больше нет) */
 .hero > .hero-logo{position:absolute !important;left:50% !important;top:50% !important;right:auto !important;bottom:auto !important;transform:translate(-50%,-50%) !important;width:min(760px,86vw) !important;max-width:86vw !important;height:auto !important;max-height:70vh !important;object-fit:contain !important;margin:0 !important}
+
+/* ===== фон-слайдер из фото (вместо видео) ===== */
+.site-bg-slider{position:fixed;inset:0;z-index:0;background:#1b1b1b;pointer-events:none;overflow:hidden}
+@supports (height:100lvh){.site-bg-slider{height:100lvh;bottom:auto}}
+.site-bg-slider .bg-slide{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;transition:opacity 1.8s ease}
+.site-bg-slider .bg-slide.on{opacity:1}
+.site-bg-slider::after{content:"";position:absolute;inset:0;background:rgba(27,27,27,.68)}
+
+/* ===== облегчение: без бесконечных анимаций свечения и размытия фона ===== */
+.service-card,.services-cards .service-card,.media-card,.video-examples-section .media-card,.music-card{animation:none !important}
+*,*::before,*::after{-webkit-backdrop-filter:none !important;backdrop-filter:none !important}
+.header{background:rgba(27,27,27,.92) !important}
