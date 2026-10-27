@@ -5,12 +5,10 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Пользовательское соглашение | Студия «Артель»</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261027b">
 </head>
 <body class="legal-page terms-page">
-<video class="site-background-video" autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg" aria-hidden="true">
-  <source src="hero-720-h264.mp4" type="video/mp4">
-</video>
+<div class="site-bg-slider" aria-hidden="true"></div>
 <div class="site-background-overlay" aria-hidden="true"></div>
 <header class="header">
   <div class="header-gradient"></div>
@@ -59,16 +57,6 @@ if(burger&&nav){
   nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>nav.classList.remove('active')));
 }
 </script>
-<script>
-(function(){
-  var v=document.querySelector('.site-background-video');if(!v)return;
-  v.muted=true;v.defaultMuted=true;v.setAttribute('playsinline','');
-  function go(){var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){});}
-  go();
-  v.addEventListener('loadeddata',go);v.addEventListener('canplay',go);
-  document.addEventListener('visibilitychange',function(){if(!document.hidden)go();});
-  ['touchstart','pointerdown','scroll','keydown','click'].forEach(function(e){window.addEventListener(e,function h(){go();if(!v.paused)window.removeEventListener(e,h,true);},{passive:true,capture:true});});
-})();
-</script>
+<script src="bg-slider.js" defer></script>
 </body>
 </html>

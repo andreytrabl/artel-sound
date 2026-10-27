@@ -6,14 +6,12 @@
   <meta name="description" content="Запись вокала и инструментов в студии «Артель», Тула.">
   <title>Запись на студии | Студия звукозаписи «Артель»</title>
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="styles.css?v=20261025b">
+  <link rel="stylesheet" href="styles.css?v=20261027b">
   <link rel="stylesheet" href="music.css?v=20261024a">
 </head>
 <body class="music-page">
 
-<video class="site-background-video" autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg" aria-hidden="true">
-  <source src="hero-720-h264.mp4" type="video/mp4">
-</video>
+<div class="site-bg-slider" aria-hidden="true"></div>
 <div class="site-background-overlay" aria-hidden="true"></div>
 
 <header class="header music-header">
@@ -149,7 +147,7 @@
         <a class="artel-case-order" href="#contacts">ЗАКАЗАТЬ</a>
       </div>
 
-      <audio data-audio preload="metadata"></audio>
+      <audio data-audio preload="none"></audio>
     </div>
   </section>
 
@@ -442,7 +440,8 @@ if (audioPlayer) {
     currentIndex = (index + musicTracks.length) % musicTracks.length;
     const track = musicTracks[currentIndex];
 
-    audio.src = track.src;
+    audio.pending = track.src;
+    if (autoplay) { audio.src = track.src; } else { audio.removeAttribute('src'); }
     title.textContent = track.title || 'Без названия';
     description.textContent = track.description || '';
     resetProgress();
@@ -458,7 +457,7 @@ if (audioPlayer) {
       background.style.removeProperty('--player-cover');
     }
 
-    audio.load();
+    if (audio.src) audio.load();
     if (autoplay) audio.play().catch(() => {});
   };
 
@@ -618,6 +617,7 @@ if (audioPlayer) {
   window.addEventListener('resize', resizeVisualizer, {passive:true});
 
   playButton.addEventListener('click', () => {
+    if (!audio.src && audio.pending) { audio.src = audio.pending; audio.load(); }
     if (!audio.src) return;
     if (audio.paused) audio.play().catch(() => {});
     else audio.pause();
@@ -663,16 +663,6 @@ if (audioPlayer) {
   loadTrack(randomInitialIndex, false);
 }
 </script>
-<script>
-(function(){
-  var v=document.querySelector('.site-background-video');if(!v)return;
-  v.muted=true;v.defaultMuted=true;v.setAttribute('playsinline','');
-  function go(){var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){});}
-  go();
-  v.addEventListener('loadeddata',go);v.addEventListener('canplay',go);
-  document.addEventListener('visibilitychange',function(){if(!document.hidden)go();});
-  ['touchstart','pointerdown','scroll','keydown','click'].forEach(function(e){window.addEventListener(e,function h(){go();if(!v.paused)window.removeEventListener(e,h,true);},{passive:true,capture:true});});
-})();
-</script>
+<script src="bg-slider.js" defer></script>
 </body>
 </html>
