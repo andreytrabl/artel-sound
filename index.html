@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="«Артель» | Студия звукозаписи" />
     
-    <link rel="stylesheet" href="styles.css?v=20261027b">
+    <link rel="stylesheet" href="styles.css?v=20261028b">
 
     <script type="text/javascript">
         function loadYandexMetrika() {
@@ -222,6 +222,14 @@
             <span data-duration>0:00</span>
           </div>
           <input class="artel-case-progress" data-progress type="range" min="0" max="100" value="0" step="0.1" aria-label="Позиция воспроизведения">
+        </div>
+
+        <div class="artel-case-volume" data-volume-box>
+          <button class="artel-case-mute" type="button" data-mute aria-label="Выключить звук">
+            <svg class="vol-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.6L12 18.5v-13L7.6 9.5H4Z"/><path class="vol-wave" d="M15 9.2a4 4 0 0 1 0 5.6M17.4 6.8a7.4 7.4 0 0 1 0 10.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <svg class="vol-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.6L12 18.5v-13L7.6 9.5H4Z"/><path d="m15.5 9.5 5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+          <input class="artel-case-volume-range" data-volume type="range" min="0" max="100" value="100" step="1" aria-label="Громкость">
         </div>
 
         <a class="artel-case-order" href="#contacts">ЗАКАЗАТЬ</a>
@@ -1565,6 +1573,25 @@ if (audioPlayer) {
     }
     check();window.addEventListener('load',check);window.addEventListener('resize',check);
   });
+})();
+</script>
+<script>
+(function(){
+  var audio=document.querySelector('[data-audio]'),box=document.querySelector('[data-volume-box]');
+  if(!audio||!box)return;
+  var range=box.querySelector('[data-volume]'),mute=box.querySelector('[data-mute]');
+  // iOS не даёт менять громкость программно — прячем регулятор
+  var t=audio.volume;audio.volume=.5;
+  if(Math.abs(audio.volume-.5)>.01){box.style.display='none';return;}
+  audio.volume=t;
+  var vol=1;try{var sv=parseFloat(localStorage.getItem('artelVol'));if(sv>=0&&sv<=1)vol=sv;}catch(e){}
+  var last=vol||.7;
+  function paint(){var v=audio.muted?0:audio.volume;range.value=Math.round(v*100);range.style.setProperty('--volume',Math.round(v*100)+'%');box.classList.toggle('is-muted',v===0);mute.setAttribute('aria-label',v===0?'Включить звук':'Выключить звук');}
+  function apply(v,save){audio.volume=v;audio.muted=v===0;if(v>0)last=v;if(save){try{localStorage.setItem('artelVol',String(v));}catch(e){}}paint();}
+  range.addEventListener('input',function(){apply(range.value/100,true);});
+  mute.addEventListener('click',function(){if(audio.muted||audio.volume===0)apply(last,true);else apply(0,true);});
+  apply(vol,false);
+  audio.addEventListener('volumechange',paint);
 })();
 </script>
 <script src="bg-slider.js" defer></script>
