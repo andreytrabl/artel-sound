@@ -5701,3 +5701,25 @@ html{background-color:#1b1b1b !important}
 .service-card,.services-cards .service-card,.media-card,.video-examples-section .media-card,.music-card{animation:none !important}
 *,*::before,*::after{-webkit-backdrop-filter:none !important;backdrop-filter:none !important}
 .header{background:rgba(27,27,27,.92) !important}
+
+/* ===== регулятор громкости плеера ===== */
+.artel-case-volume{display:flex;align-items:center;gap:8px;flex:none}
+.artel-case-mute{width:34px;height:34px;padding:0;border:1px solid rgba(250,250,252,.24);border-radius:50%;background:rgba(250,250,252,.06);color:#fafafc;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .18s ease,background .18s ease,color .18s ease}
+.artel-case-mute:hover{border-color:#ff8a00;color:#ff8a00}
+.artel-case-mute svg{width:18px;height:18px;fill:currentColor}
+.artel-case-mute .vol-off{display:none}
+.artel-case-volume.is-muted .vol-on{display:none}
+.artel-case-volume.is-muted .vol-off{display:block}
+.artel-case-volume-range{--volume:100%;width:84px;height:20px;margin:0;padding:0;appearance:none;-webkit-appearance:none;background:transparent;cursor:pointer}
+.artel-case-volume-range::-webkit-slider-runnable-track{height:5px;border-radius:999px;background:linear-gradient(90deg,#ff8a00 0 var(--volume),rgba(250,250,252,.18) var(--volume) 100%)}
+.artel-case-volume-range::-moz-range-track{height:5px;border-radius:999px;background:rgba(250,250,252,.18)}
+.artel-case-volume-range::-moz-range-progress{height:5px;border-radius:999px;background:#ff8a00}
+.artel-case-volume-range::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:12px;height:12px;margin-top:-3.5px;border:2px solid #fafafc;border-radius:50%;background:#ff8a00;box-shadow:0 0 0 4px rgba(255,138,0,.14),0 3px 10px rgba(0,0,0,.35);transition:transform .18s ease}
+.artel-case-volume-range::-moz-range-thumb{width:8px;height:8px;border:2px solid #fafafc;border-radius:50%;background:#ff8a00;box-shadow:0 0 0 4px rgba(255,138,0,.14)}
+.artel-case-volume-range:hover::-webkit-slider-thumb{transform:scale(1.18)}
+.artel-case-volume-range:focus-visible{outline:none}
+@media (max-width:700px){
+  .artel-case-player .artel-case-controls{grid-template-areas:"progress" "buttons" "volume" "order" !important}
+  .artel-case-player .artel-case-volume{grid-area:volume;justify-self:center;width:min(240px,70%)}
+  .artel-case-player .artel-case-volume-range{flex:1 1 auto;width:auto}
+}
